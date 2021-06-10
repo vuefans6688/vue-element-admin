@@ -40,7 +40,6 @@ export default {
     /* 84 = navbar + tags-view = 50 + 34 */
     min-height: calc(100vh - 84px);
   }
-
   .fixed-header + .app-main {
     padding-top: 84px;
   }
@@ -48,7 +47,7 @@ export default {
 </style>
 
 <style lang="scss">
-// fix css style bug in open el-dialog
+// 修复打开el-dialog中的css样式错误
 .el-popup-parent--hidden {
   .fixed-header {
     padding-right: 15px;
