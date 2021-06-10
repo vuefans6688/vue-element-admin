@@ -8,19 +8,19 @@ const roles = [
   {
     key: 'admin',
     name: 'admin',
-    description: 'Super Administrator. Have access to view all pages.',
+    description: '超级管理员。有权查看所有页面。',
     routes: routes
   },
   {
     key: 'editor',
     name: 'editor',
-    description: 'Normal Editor. Can see all pages except permission page',
-    routes: routes.filter(i => i.path !== '/permission')// just a mock
+    description: '普通编辑。可以查看除权限页以外的所有页',
+    routes: routes.filter(i => i.path !== '/permission')  // 只是个玩笑
   },
   {
     key: 'visitor',
     name: 'visitor',
-    description: 'Just a visitor. Can only see the home page and the document page',
+    description: '只是个访客。只能看到主页和文档页',
     routes: [{
       path: '',
       redirect: 'dashboard',
@@ -28,7 +28,7 @@ const roles = [
         {
           path: 'dashboard',
           name: 'Dashboard',
-          meta: { title: 'dashboard', icon: 'dashboard' }
+          meta: { title: '仪表板', icon: 'dashboard' }
         }
       ]
     }]
@@ -36,7 +36,7 @@ const roles = [
 ]
 
 module.exports = [
-  // mock get all routes form server
+  // 模拟从服务器获取所有路由
   {
     url: '/vue-element-admin/routes',
     type: 'get',
@@ -48,7 +48,7 @@ module.exports = [
     }
   },
 
-  // mock get all roles form server
+  // 模拟从服务器获取所有角色
   {
     url: '/vue-element-admin/roles',
     type: 'get',
@@ -60,7 +60,7 @@ module.exports = [
     }
   },
 
-  // add role
+  // 添加角色
   {
     url: '/vue-element-admin/role',
     type: 'post',
@@ -72,7 +72,7 @@ module.exports = [
     }
   },
 
-  // update role
+  // 更新角色
   {
     url: '/vue-element-admin/role/[A-Za-z0-9]',
     type: 'put',
@@ -84,7 +84,7 @@ module.exports = [
     }
   },
 
-  // delete role
+  // 删除角色
   {
     url: '/vue-element-admin/role/[A-Za-z0-9]',
     type: 'delete',

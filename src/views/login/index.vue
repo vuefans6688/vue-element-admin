@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
     <el-form
-      ref="loginForm"
+      ref="login-form"
       :model="loginForm"
       :rules="loginRules"
       class="login-form"
@@ -50,7 +50,7 @@
             @blur="capsTooltip = false"
             @keyup.enter.native="handleLogin"
           />
-          <span class="show-pwd" @click="showPwd">
+          <span class="show-password" @click="showPassword">
             <svg-icon
               :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'"
             />
@@ -63,17 +63,16 @@
         type="primary"
         style="width: 100%; margin-bottom: 30px"
         @click.native.prevent="handleLogin"
-        >登录</el-button
-      >
+      >登录</el-button>
 
       <div style="position: relative">
         <div class="tips">
-          <span>Username : admin</span>
-          <span>Password : any</span>
+          <span>用户名 : admin</span>
+          <span>密码 : any</span>
         </div>
         <div class="tips">
-          <span style="margin-right: 18px">Username : editor</span>
-          <span>Password : any</span>
+          <span style="margin-right: 18px">用户名 : editor</span>
+          <span>密码 : any</span>
         </div>
 
         <el-button
@@ -86,11 +85,11 @@
       </div>
     </el-form>
 
-    <el-dialog title="Or connect with" :visible.sync="showDialog">
+    <el-dialog title="或与...连接" :visible.sync="showDialog">
       不能在本地模拟，所以请结合您自己的业务模拟! ! !
-      <br />
-      <br />
-      <br />
+      <br>
+      <br>
+      <br>
       <social-sign />
     </el-dialog>
   </div>
@@ -103,7 +102,7 @@ import SocialSign from './components/SocialSignin'
 export default {
   name: 'Login',
   components: { SocialSign },
-  data () {
+  data() {
     const validateUsername = (rule, value, callback) => {
       if (!validUsername(value)) {
         callback(new Error('请输入正确的用户名'))
@@ -137,7 +136,7 @@ export default {
   },
   watch: {
     $route: {
-      handler (route) {
+      handler(route) {
         const query = route.query
         if (query) {
           this.redirect = query.redirect
@@ -147,25 +146,25 @@ export default {
       immediate: true
     }
   },
-  created () {
+  created() {
     // window.addEventListener('storage', this.afterQRScan)
   },
-  mounted () {
+  mounted() {
     if (this.loginForm.username === '') {
       this.$refs.username.focus()
     } else if (this.loginForm.password === '') {
       this.$refs.password.focus()
     }
   },
-  destroyed () {
+  destroyed() {
     // window.removeEventListener('storage', this.afterQRScan)
   },
   methods: {
-    checkCapslock (e) {
+    checkCapslock(e) {
       const { key } = e
       this.capsTooltip = key && key.length === 1 && (key >= 'A' && key <= 'Z')
     },
-    showPwd () {
+    showPassword() {
       if (this.passwordType === 'password') {
         this.passwordType = ''
       } else {
@@ -175,8 +174,8 @@ export default {
         this.$refs.password.focus()
       })
     },
-    handleLogin () {
-      this.$refs.loginForm.validate(valid => {
+    handleLogin() {
+      this.$refs['login-form'].validate(valid => {
         if (valid) {
           this.loading = true
           this.$store.dispatch('user/login', this.loginForm)
@@ -192,7 +191,7 @@ export default {
         }
       })
     },
-    getOtherQuery (query) {
+    getOtherQuery(query) {
       return Object.keys(query).reduce((acc, cur) => {
         if (cur !== 'redirect') {
           acc[cur] = query[cur]
@@ -226,8 +225,8 @@ export default {
 /* 修复input 背景不协调 和光标变色 */
 /* Detail see https://github.com/PanJiaChen/vue-element-admin/pull/927 */
 
-$bg: #283443;
-$light_gray: #fff;
+$background: #283443;
+$light-gray: #fff;
 $cursor: #fff;
 
 @supports (-webkit-mask: none) and (not (cater-color: $cursor)) {
@@ -249,12 +248,12 @@ $cursor: #fff;
       -webkit-appearance: none;
       border-radius: 0px;
       padding: 12px 5px 12px 15px;
-      color: $light_gray;
+      color: $light-gray;
       height: 47px;
       caret-color: $cursor;
 
       &:-webkit-autofill {
-        box-shadow: 0 0 0px 1000px $bg inset !important;
+        box-shadow: 0 0 0px 1000px $background inset !important;
         -webkit-text-fill-color: $cursor !important;
       }
     }
@@ -270,14 +269,14 @@ $cursor: #fff;
 </style>
 
 <style lang="scss" scoped>
-$bg: #2d3a4b;
-$dark_gray: #889aa4;
-$light_gray: #eee;
+$background: #2d3a4b;
+$dark-gray: #889aa4;
+$light-gray: #eee;
 
 .login-container {
   min-height: 100%;
   width: 100%;
-  background-color: $bg;
+  background-color: $background;
   overflow: hidden;
 
   .login-form {
@@ -303,7 +302,7 @@ $light_gray: #eee;
 
   .svg-container {
     padding: 6px 5px 6px 15px;
-    color: $dark_gray;
+    color: $dark-gray;
     vertical-align: middle;
     width: 30px;
     display: inline-block;
@@ -314,19 +313,19 @@ $light_gray: #eee;
 
     .title {
       font-size: 26px;
-      color: $light_gray;
+      color: $light-gray;
       margin: 0px auto 40px auto;
       text-align: center;
       font-weight: bold;
     }
   }
 
-  .show-pwd {
+  .show-password {
     position: absolute;
     right: 10px;
     top: 7px;
     font-size: 16px;
-    color: $dark_gray;
+    color: $dark-gray;
     cursor: pointer;
     user-select: none;
   }

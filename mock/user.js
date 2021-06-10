@@ -11,35 +11,33 @@ const tokens = {
 const users = {
   'admin-token': {
     roles: ['admin'],
-    introduction: 'I am a super administrator',
+    introduction: '我是一个超级管理员',
     avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
-    name: 'Super Admin'
+    name: '超级管理员'
   },
   'editor-token': {
     roles: ['editor'],
-    introduction: 'I am an editor',
+    introduction: '我是一个编辑',
     avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
-    name: 'Normal Editor'
+    name: '普通编辑'
   }
 }
 
 module.exports = [
-  // user login
+  // 用户登录
   {
     url: '/vue-element-admin/user/login',
     type: 'post',
     response: config => {
       const { username } = config.body
       const token = tokens[username]
-
-      // mock error
+      // 模拟错误
       if (!token) {
         return {
           code: 60204,
-          message: 'Account and password are incorrect.'
+          message: '帐户和密码不正确'
         }
       }
-
       return {
         code: 20000,
         data: token
@@ -47,7 +45,7 @@ module.exports = [
     }
   },
 
-  // get user info
+  // 获取用户信息
   {
     url: '/vue-element-admin/user/info\.*',
     type: 'get',
@@ -55,11 +53,11 @@ module.exports = [
       const { token } = config.query
       const info = users[token]
 
-      // mock error
+      // 模拟错误
       if (!info) {
         return {
           code: 50008,
-          message: 'Login failed, unable to get user details.'
+          message: '登录失败，无法获取用户详细信息'
         }
       }
 
@@ -70,7 +68,7 @@ module.exports = [
     }
   },
 
-  // user logout
+  // 用户退出
   {
     url: '/vue-element-admin/user/logout',
     type: 'post',

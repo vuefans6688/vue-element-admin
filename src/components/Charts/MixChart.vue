@@ -1,5 +1,5 @@
 <template>
-  <div :id="id" :class="className" :style="{height:height,width:width}" />
+  <div :id="id" :class="className" :style="{ height: height, width: width }" />
 </template>
 
 <script>
@@ -151,7 +151,8 @@ export default {
 
           },
           textStyle: {
-            color: '#fff' },
+            color: '#fff'
+          },
           borderColor: '#90979c'
 
         }, {

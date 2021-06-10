@@ -1,5 +1,12 @@
 <template>
-  <el-select ref="dragSelect" v-model="selectVal" v-bind="$attrs" class="drag-select" multiple v-on="$listeners">
+  <el-select
+    ref="dragSelect"
+    v-model="selectVal"
+    v-bind="$attrs"
+    class="drag-select"
+    multiple
+    v-on="$listeners"
+  >
     <slot />
   </el-select>
 </template>
@@ -52,7 +59,7 @@ export default {
 .drag-select {
   ::v-deep {
     .sortable-ghost {
-      opacity: .8;
+      opacity: 0.8;
       color: #fff !important;
       background: #42b983 !important;
     }

@@ -1,4 +1,4 @@
-// Just a mock data
+// 只是一个模拟数据
 
 const constantRoutes = [
   {
@@ -41,7 +41,7 @@ const constantRoutes = [
         path: 'dashboard',
         component: 'views/dashboard/index',
         name: 'Dashboard',
-        meta: { title: 'Dashboard', icon: 'dashboard', affix: true }
+        meta: { title: '仪表板', icon: 'dashboard', affix: true }
       }
     ]
   },
@@ -53,7 +53,7 @@ const constantRoutes = [
         path: 'index',
         component: 'views/documentation/index',
         name: 'Documentation',
-        meta: { title: 'Documentation', icon: 'documentation', affix: true }
+        meta: { title: '文档', icon: 'documentation', affix: true }
       }
     ]
   },
@@ -66,7 +66,7 @@ const constantRoutes = [
         path: 'index',
         component: 'views/guide/index',
         name: 'Guide',
-        meta: { title: 'Guide', icon: 'guide', noCache: true }
+        meta: { title: '指南', icon: 'guide', noCache: true }
       }
     ]
   }
@@ -79,7 +79,7 @@ const asyncRoutes = [
     redirect: '/permission/index',
     alwaysShow: true,
     meta: {
-      title: 'Permission',
+      title: '许可',
       icon: 'lock',
       roles: ['admin', 'editor']
     },
@@ -89,7 +89,7 @@ const asyncRoutes = [
         component: 'views/permission/page',
         name: 'PagePermission',
         meta: {
-          title: 'Page Permission',
+          title: '页面许可',
           roles: ['admin']
         }
       },
@@ -98,7 +98,7 @@ const asyncRoutes = [
         component: 'views/permission/directive',
         name: 'DirectivePermission',
         meta: {
-          title: 'Directive Permission'
+          title: '指令许可'
         }
       },
       {
@@ -106,7 +106,7 @@ const asyncRoutes = [
         component: 'views/permission/role',
         name: 'RolePermission',
         meta: {
-          title: 'Role Permission',
+          title: '角色许可',
           roles: ['admin']
         }
       }
@@ -121,7 +121,7 @@ const asyncRoutes = [
         path: 'index',
         component: 'views/icons/index',
         name: 'Icons',
-        meta: { title: 'Icons', icon: 'icon', noCache: true }
+        meta: { title: '图标', icon: 'icon', noCache: true }
       }
     ]
   },
@@ -132,7 +132,7 @@ const asyncRoutes = [
     redirect: 'noRedirect',
     name: 'ComponentDemo',
     meta: {
-      title: 'Components',
+      title: '组件',
       icon: 'component'
     },
     children: [
@@ -158,67 +158,67 @@ const asyncRoutes = [
         path: 'split-pane',
         component: 'views/components-demo/split-pane',
         name: 'SplitpaneDemo',
-        meta: { title: 'SplitPane' }
+        meta: { title: '分隔块' }
       },
       {
         path: 'avatar-upload',
         component: 'views/components-demo/avatar-upload',
         name: 'AvatarUploadDemo',
-        meta: { title: 'Avatar Upload' }
+        meta: { title: '头像上传' }
       },
       {
         path: 'dropzone',
         component: 'views/components-demo/dropzone',
         name: 'DropzoneDemo',
-        meta: { title: 'Dropzone' }
+        meta: { title: '空投区' }
       },
       {
         path: 'sticky',
         component: 'views/components-demo/sticky',
         name: 'StickyDemo',
-        meta: { title: 'Sticky' }
+        meta: { title: '粘贴' }
       },
       {
         path: 'count-to',
         component: 'views/components-demo/count-to',
         name: 'CountToDemo',
-        meta: { title: 'Count To' }
+        meta: { title: '计算总数' }
       },
       {
         path: 'mixin',
         component: 'views/components-demo/mixin',
         name: 'ComponentMixinDemo',
-        meta: { title: 'componentMixin' }
+        meta: { title: '混合组件' }
       },
       {
         path: 'back-to-top',
         component: 'views/components-demo/back-to-top',
         name: 'BackToTopDemo',
-        meta: { title: 'Back To Top' }
+        meta: { title: '返回顶部' }
       },
       {
         path: 'drag-dialog',
         component: 'views/components-demo/drag-dialog',
         name: 'DragDialogDemo',
-        meta: { title: 'Drag Dialog' }
+        meta: { title: '拖拽对话框' }
       },
       {
         path: 'drag-select',
         component: 'views/components-demo/drag-select',
         name: 'DragSelectDemo',
-        meta: { title: 'Drag Select' }
+        meta: { title: '拖拽选择' }
       },
       {
         path: 'dnd-list',
         component: 'views/components-demo/dnd-list',
         name: 'DndListDemo',
-        meta: { title: 'Dnd List' }
+        meta: { title: '底部列表' }
       },
       {
         path: 'drag-kanban',
         component: 'views/components-demo/drag-kanban',
         name: 'DragKanbanDemo',
-        meta: { title: 'Drag Kanban' }
+        meta: { title: '拖拽看板' }
       }
     ]
   },
@@ -228,7 +228,7 @@ const asyncRoutes = [
     redirect: 'noRedirect',
     name: 'Charts',
     meta: {
-      title: 'Charts',
+      title: '图表',
       icon: 'chart'
     },
     children: [
@@ -236,19 +236,19 @@ const asyncRoutes = [
         path: 'keyboard',
         component: 'views/charts/keyboard',
         name: 'KeyboardChart',
-        meta: { title: 'Keyboard Chart', noCache: true }
+        meta: { title: '键盘图表', noCache: true }
       },
       {
         path: 'line',
         component: 'views/charts/line',
         name: 'LineChart',
-        meta: { title: 'Line Chart', noCache: true }
+        meta: { title: '折线图表', noCache: true }
       },
       {
         path: 'mixchart',
         component: 'views/charts/mixChart',
         name: 'MixChart',
-        meta: { title: 'Mix Chart', noCache: true }
+        meta: { title: '混合图表', noCache: true }
       }
     ]
   },
@@ -258,7 +258,7 @@ const asyncRoutes = [
     redirect: '/nested/menu1/menu1-1',
     name: 'Nested',
     meta: {
-      title: 'Nested',
+      title: '嵌套路由',
       icon: 'nested'
     },
     children: [
@@ -266,33 +266,33 @@ const asyncRoutes = [
         path: 'menu1',
         component: 'views/nested/menu1/index',
         name: 'Menu1',
-        meta: { title: 'Menu1' },
+        meta: { title: '菜单1' },
         redirect: '/nested/menu1/menu1-1',
         children: [
           {
             path: 'menu1-1',
             component: 'views/nested/menu1/menu1-1',
             name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
+            meta: { title: '菜单1-1' }
           },
           {
             path: 'menu1-2',
             component: 'views/nested/menu1/menu1-2',
             name: 'Menu1-2',
             redirect: '/nested/menu1/menu1-2/menu1-2-1',
-            meta: { title: 'Menu1-2' },
+            meta: { title: '菜单1-2' },
             children: [
               {
                 path: 'menu1-2-1',
                 component: 'views/nested/menu1/menu1-2/menu1-2-1',
                 name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
+                meta: { title: '菜单1-2-1' }
               },
               {
                 path: 'menu1-2-2',
                 component: 'views/nested/menu1/menu1-2/menu1-2-2',
                 name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
+                meta: { title: '菜单1-2-2' }
               }
             ]
           },
@@ -300,7 +300,7 @@ const asyncRoutes = [
             path: 'menu1-3',
             component: 'views/nested/menu1/menu1-3',
             name: 'Menu1-3',
-            meta: { title: 'Menu1-3' }
+            meta: { title: '菜单1-3' }
           }
         ]
       },
@@ -308,7 +308,7 @@ const asyncRoutes = [
         path: 'menu2',
         name: 'Menu2',
         component: 'views/nested/menu2/index',
-        meta: { title: 'Menu2' }
+        meta: { title: '菜单2' }
       }
     ]
   },
@@ -319,7 +319,7 @@ const asyncRoutes = [
     redirect: '/example/list',
     name: 'Example',
     meta: {
-      title: 'Example',
+      title: '例子',
       icon: 'example'
     },
     children: [
@@ -327,20 +327,20 @@ const asyncRoutes = [
         path: 'create',
         component: 'views/example/create',
         name: 'CreateArticle',
-        meta: { title: 'Create Article', icon: 'edit' }
+        meta: { title: '创建文章', icon: 'edit' }
       },
       {
         path: 'edit/:id(\\d+)',
         component: 'views/example/edit',
         name: 'EditArticle',
-        meta: { title: 'Edit Article', noCache: true },
+        meta: { title: '编辑文章', noCache: true },
         hidden: true
       },
       {
         path: 'list',
         component: 'views/example/list',
         name: 'ArticleList',
-        meta: { title: 'Article List', icon: 'list' }
+        meta: { title: '文章列表', icon: 'list' }
       }
     ]
   },
@@ -353,7 +353,7 @@ const asyncRoutes = [
         path: 'index',
         component: 'views/tab/index',
         name: 'Tab',
-        meta: { title: 'Tab', icon: 'tab' }
+        meta: { title: '制表符', icon: 'tab' }
       }
     ]
   },
@@ -364,7 +364,7 @@ const asyncRoutes = [
     redirect: 'noRedirect',
     name: 'ErrorPages',
     meta: {
-      title: 'Error Pages',
+      title: '错误页',
       icon: '404'
     },
     children: [
@@ -372,13 +372,13 @@ const asyncRoutes = [
         path: '401',
         component: 'views/error-page/401',
         name: 'Page401',
-        meta: { title: 'Page 401', noCache: true }
+        meta: { title: '401页', noCache: true }
       },
       {
         path: '404',
         component: 'views/error-page/404',
         name: 'Page404',
-        meta: { title: 'Page 404', noCache: true }
+        meta: { title: '404页', noCache: true }
       }
     ]
   },
@@ -392,7 +392,7 @@ const asyncRoutes = [
         path: 'log',
         component: 'views/error-log/index',
         name: 'ErrorLog',
-        meta: { title: 'Error Log', icon: 'bug' }
+        meta: { title: '错误日志', icon: 'bug' }
       }
     ]
   },
@@ -411,25 +411,25 @@ const asyncRoutes = [
         path: 'export-excel',
         component: 'views/excel/export-excel',
         name: 'ExportExcel',
-        meta: { title: 'Export Excel' }
+        meta: { title: '导出Excel' }
       },
       {
         path: 'export-selected-excel',
         component: 'views/excel/select-excel',
         name: 'SelectExcel',
-        meta: { title: 'Select Excel' }
+        meta: { title: '选择Excel' }
       },
       {
         path: 'export-merge-header',
         component: 'views/excel/merge-header',
         name: 'MergeHeader',
-        meta: { title: 'Merge Header' }
+        meta: { title: '合并头部' }
       },
       {
         path: 'upload-excel',
         component: 'views/excel/upload-excel',
         name: 'UploadExcel',
-        meta: { title: 'Upload Excel' }
+        meta: { title: '上传Excel' }
       }
     ]
   },
@@ -445,7 +445,7 @@ const asyncRoutes = [
         path: 'download',
         component: 'views/zip/index',
         name: 'ExportZip',
-        meta: { title: 'Export Zip' }
+        meta: { title: '导出Zip' }
       }
     ]
   },
@@ -478,7 +478,7 @@ const asyncRoutes = [
         path: 'index',
         component: 'views/theme/index',
         name: 'Theme',
-        meta: { title: 'Theme', icon: 'theme' }
+        meta: { title: '主题', icon: 'theme' }
       }
     ]
   },
@@ -492,7 +492,7 @@ const asyncRoutes = [
         path: 'index',
         component: 'views/clipboard/index',
         name: 'ClipboardDemo',
-        meta: { title: 'Clipboard Demo', icon: 'clipboard' }
+        meta: { title: '剪贴板', icon: 'clipboard' }
       }
     ]
   },
@@ -516,7 +516,7 @@ const asyncRoutes = [
     children: [
       {
         path: 'https://github.com/PanJiaChen/vue-element-admin',
-        meta: { title: 'External Link', icon: 'link' }
+        meta: { title: '外部链接', icon: 'link' }
       }
     ]
   },

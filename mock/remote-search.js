@@ -11,7 +11,7 @@ for (let i = 0; i < count; i++) {
 NameList.push({ name: 'mock-Pan' })
 
 module.exports = [
-  // username search
+  // 用户名搜索
   {
     url: '/vue-element-admin/search/user',
     type: 'get',
@@ -28,7 +28,7 @@ module.exports = [
     }
   },
 
-  // transaction list
+  // 业务处理列表
   {
     url: '/vue-element-admin/transaction/list',
     type: 'get',

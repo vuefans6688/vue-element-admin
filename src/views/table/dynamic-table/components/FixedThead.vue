@@ -2,21 +2,32 @@
   <div class="app-container">
     <div class="filter-container">
       <el-checkbox-group v-model="checkboxVal">
-        <el-checkbox label="apple">
-          apple
-        </el-checkbox>
-        <el-checkbox label="banana">
-          banana
-        </el-checkbox>
-        <el-checkbox label="orange">
-          orange
-        </el-checkbox>
+        <el-checkbox label="苹果"> 苹果 </el-checkbox>
+        <el-checkbox label="香蕉"> 香蕉 </el-checkbox>
+        <el-checkbox label="桔子"> 桔子 </el-checkbox>
       </el-checkbox-group>
     </div>
 
-    <el-table :key="key" :data="tableData" border fit highlight-current-row style="width: 100%">
-      <el-table-column prop="name" label="fruitName" width="180" />
-      <el-table-column v-for="fruit in formThead" :key="fruit" :label="fruit">
+    <el-table
+      :key="key"
+      :data="tableData"
+      border
+      fit
+      highlight-current-row
+      style="width: 100%"
+    >
+      <el-table-column
+        prop="name"
+        label="fruitName"
+        width="180"
+        align="center"
+      />
+      <el-table-column
+        v-for="fruit in formThead"
+        :key="fruit"
+        :label="fruit"
+        align="center"
+      >
         <template slot-scope="scope">
           {{ scope.row[fruit] }}
         </template>
@@ -26,7 +37,7 @@
 </template>
 
 <script>
-const defaultFormThead = ['apple', 'banana']
+const defaultFormThead = ['苹果', '香蕉']
 
 export default {
   data() {
@@ -46,7 +57,7 @@ export default {
         }
       ],
       key: 1, // table key
-      formTheadOptions: ['apple', 'banana', 'orange'],
+      formTheadOptions: ['苹果', '香蕉', '桔子'],
       checkboxVal: defaultFormThead, // checkboxVal
       formThead: defaultFormThead // 默认表头 Default header
     }
