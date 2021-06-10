@@ -5,7 +5,7 @@ export default {
     dialogHeaderEl.style.cssText += ';cursor:move;'
     dragDom.style.cssText += ';top:0px;'
 
-    // 获取原有属性 ie dom元素.currentStyle 火狐谷歌 window.getComputedStyle(dom元素, null);
+    // 获取原有属性 ie dom元素.currentStyle 火狐谷歌 window.getComputedStyle(dom元素, null)
     const getStyle = (function() {
       if (window.document.currentStyle) {
         return (dom, attr) => dom.currentStyle[attr]
@@ -64,7 +64,7 @@ export default {
         // 移动当前元素
         dragDom.style.cssText += `;left:${left + styL}px;top:${top + styT}px;`
 
-        // emit onDrag event
+        // 发送onDrag事件
         vnode.child.$emit('dragDialog')
       }
 

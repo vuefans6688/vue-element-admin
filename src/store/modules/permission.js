@@ -20,7 +20,6 @@ function hasPermission(roles, route) {
  */
 export function filterAsyncRoutes(routes, roles) {
   const result = []
-
   routes.forEach(route => {
     const temp = { ...route }
     if (hasPermission(roles, temp)) {
@@ -30,7 +29,6 @@ export function filterAsyncRoutes(routes, roles) {
       result.push(temp)
     }
   })
-
   return result
 }
 

@@ -1,10 +1,10 @@
 import { addResizeListener, removeResizeListener } from 'element-ui/src/utils/resize-event'
 
 /**
- * How to use
+ * 如何使用
  * <el-table height="100px" v-el-height-adaptive-table="{bottomOffset: 30}">...</el-table>
- * el-table height is must be set
- * bottomOffset: 30(default)   // The height of the table from the bottom of the page.
+ * el-table 必须设置高度
+ * bottomOffset: 30(default)  // 表格从页面到底部的高度
  */
 
 const doResize = (el, binding, vnode) => {
@@ -13,7 +13,7 @@ const doResize = (el, binding, vnode) => {
   const { value } = binding
 
   if (!$table.height) {
-    throw new Error(`el-$table must set the height. Such as height='100px'`)
+    throw new Error(`el-$table 必须设置高度。例如 height='100px'`)
   }
   const bottomOffset = (value && value.bottomOffset) || 30
 
@@ -29,7 +29,7 @@ export default {
     el.resizeListener = () => {
       doResize(el, binding, vnode)
     }
-    // parameter 1 is must be "Element" type
+    // 参数1必须是“Element”类型
     addResizeListener(window.document.body, el.resizeListener)
   },
   inserted(el, binding, vnode) {

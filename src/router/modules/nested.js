@@ -1,5 +1,3 @@
-/** When your routing table is too long, you can split it into small modules **/
-
 import Layout from '@/layout'
 
 const nestedRouter = {
@@ -14,7 +12,7 @@ const nestedRouter = {
   children: [
     {
       path: 'menu1',
-      component: () => import('@/views/nested/menu1/index'), // Parent router-view
+      component: () => import('@/views/nested/menu1/index'), // 父路由视图
       name: 'Menu1',
       meta: { title: '菜单 1' },
       redirect: '/nested/menu1/menu1-1',
