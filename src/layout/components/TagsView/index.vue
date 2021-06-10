@@ -110,7 +110,7 @@ export default {
     initTags() {
       const affixTags = this.affixTags = this.filterAffixTags(this.routes)
       for (const tag of affixTags) {
-        // Must have tag name
+        // 需要有标签名
         if (tag.name) {
           this.$store.dispatch('tagsView/addVisitedView', tag)
         }
@@ -129,7 +129,7 @@ export default {
         for (const tag of tags) {
           if (tag.to.path === this.$route.path) {
             this.$refs.scrollPane.moveToTarget(tag)
-            // when query is different then update
+            // 当查询不同时，则更新
             if (tag.to.fullPath !== this.$route.fullPath) {
               this.$store.dispatch('tagsView/updateVisitedView', this.$route)
             }
@@ -174,10 +174,9 @@ export default {
       if (latestView) {
         this.$router.push(latestView.fullPath)
       } else {
-        // now the default is to redirect to the home page if there is no tags-view,
-        // you can adjust it according to your needs.
+        // 如果没有tags-view，则默认重定向到主页，你可以根据需要调整。
         if (view.name === 'Dashboard') {
-          // to reload home page
+          // 重新加载主页
           this.$router.replace({ path: '/redirect' + view.fullPath })
         } else {
           this.$router.push('/')
@@ -186,17 +185,15 @@ export default {
     },
     openMenu(tag, e) {
       const menuMinWidth = 105
-      const offsetLeft = this.$el.getBoundingClientRect().left // container margin left
-      const offsetWidth = this.$el.offsetWidth // container width
-      const maxLeft = offsetWidth - menuMinWidth // left boundary
-      const left = e.clientX - offsetLeft + 15 // 15: margin right
-
+      const offsetLeft = this.$el.getBoundingClientRect().left // 容器左边距
+      const offsetWidth = this.$el.offsetWidth // 容器宽度
+      const maxLeft = offsetWidth - menuMinWidth // 左边界
+      const left = e.clientX - offsetLeft + 15 // 15: 右边距
       if (left > maxLeft) {
         this.left = maxLeft
       } else {
         this.left = left
       }
-
       this.top = e.clientY
       this.visible = true
       this.selectedTag = tag

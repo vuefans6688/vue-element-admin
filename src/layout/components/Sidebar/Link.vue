@@ -6,7 +6,6 @@
 
 <script>
 import { isExternal } from '@/utils/validate'
-
 export default {
   props: {
     to: {
@@ -35,7 +34,7 @@ export default {
         }
       }
       return {
-        to: to
+        to
       }
     }
   }

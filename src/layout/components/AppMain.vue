@@ -35,7 +35,7 @@ export default {
   padding-top: 50px;
 }
 
-.hasTagsView {
+.has-tags-view {
   .app-main {
     /* 84 = navbar + tags-view = 50 + 34 */
     min-height: calc(100vh - 84px);
