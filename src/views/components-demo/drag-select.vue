@@ -1,11 +1,21 @@
 <template>
   <div class="components-container">
-    <el-drag-select v-model="value" style="width:500px;" multiple placeholder="请选择">
-      <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+    <el-drag-select
+      v-model="value"
+      style="width: 500px"
+      multiple
+      placeholder="请选择"
+    >
+      <el-option
+        v-for="item in options"
+        :key="item.value"
+        :label="item.label"
+        :value="item.value"
+      />
     </el-drag-select>
 
-    <div style="margin-top:30px;">
-      <el-tag v-for="item of value" :key="item" style="margin-right:15px;">
+    <div style="margin-top: 30px">
+      <el-tag v-for="item of value" :key="item" style="margin-right: 15px">
         {{ item }}
       </el-tag>
     </div>
@@ -13,29 +23,29 @@
 </template>
 
 <script>
-import ElDragSelect from '@/components/DragSelect' // base on element-ui
+import ElDragSelect from '@/components/DragSelect' // 基于 element-ui
 
 export default {
   name: 'DragSelectDemo',
   components: { ElDragSelect },
   data() {
     return {
-      value: ['Apple', 'Banana', 'Orange'],
+      value: ['苹果', '香蕉', '桔子'],
       options: [{
-        value: 'Apple',
-        label: 'Apple'
+        value: '苹果',
+        label: '苹果'
       }, {
-        value: 'Banana',
-        label: 'Banana'
+        value: '香蕉',
+        label: '香蕉'
       }, {
-        value: 'Orange',
-        label: 'Orange'
+        value: '桔子',
+        label: '桔子'
       }, {
-        value: 'Pear',
-        label: 'Pear'
+        value: '梨子',
+        label: '梨子'
       }, {
-        value: 'Strawberry',
-        label: 'Strawberry'
+        value: '草莓',
+        label: '草莓'
       }]
     }
   }

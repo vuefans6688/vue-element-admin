@@ -4,9 +4,9 @@
     <div :key="key" style="margin-top: 30px">
       <div>
         <span v-permission="['admin']" class="permission-alert">
-          Only
-          <el-tag class="permission-tag" size="small">admin</el-tag> can see
-          this
+          只有
+          <el-tag class="permission-tag" size="small">管理员</el-tag> 才能看到
+          这个
         </span>
         <el-tag
           v-permission="['admin']"
@@ -19,9 +19,9 @@
 
       <div>
         <span v-permission="['editor']" class="permission-alert">
-          Only
-          <el-tag class="permission-tag" size="small">editor</el-tag> can see
-          this
+          只有
+          <el-tag class="permission-tag" size="small">编辑</el-tag> 才能看到
+          这个
         </span>
         <el-tag
           v-permission="['editor']"
@@ -34,10 +34,9 @@
 
       <div>
         <span v-permission="['admin', 'editor']" class="permission-alert">
-          Both
-          <el-tag class="permission-tag" size="small">admin</el-tag> and
-          <el-tag class="permission-tag" size="small">editor</el-tag> can see
-          this
+          <el-tag class="permission-tag" size="small">管理员</el-tag> 和
+          <el-tag class="permission-tag" size="small">编辑</el-tag> 都可以看到
+          这个
         </span>
         <el-tag
           v-permission="['admin', 'editor']"
@@ -51,23 +50,23 @@
 
     <div :key="'checkPermission' + key" style="margin-top: 60px">
       <aside>
-        In some cases, using v-permission will have no effect. For example:
-        Element-UI's Tab component or el-table-column and other scenes that
-        dynamically render dom. You can only do this with v-if.
+        在某些情况下，使用v-permission将没有效果。例如：
+        Element-UI的Tab组件或el-table-column以及其他
+        动态呈现dom。你只能用v-if来做这个。
         <br>
         e.g.
       </aside>
 
       <el-tabs type="border-card" style="width: 550px">
         <el-tab-pane v-if="checkPermission(['admin'])" label="管理员">
-          Admin can see this
+          管理员可以看到这个
           <el-tag class="permission-sourceCode" type="info">
             v-if="checkPermission(['admin'])"
           </el-tag>
         </el-tab-pane>
 
         <el-tab-pane v-if="checkPermission(['editor'])" label="编辑">
-          Editor can see this
+          编辑可以看到这个
           <el-tag class="permission-sourceCode" type="info">
             v-if="checkPermission(['editor'])"
           </el-tag>
@@ -77,7 +76,7 @@
           v-if="checkPermission(['admin', 'editor'])"
           label="管理员或编辑"
         >
-          Both admin or editor can see this
+          管理员和编辑都可以看到这个
           <el-tag class="permission-sourceCode" type="info">
             v-if="checkPermission(['admin','editor'])"
           </el-tag>

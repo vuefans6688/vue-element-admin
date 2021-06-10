@@ -44,8 +44,8 @@
           >{{ key | capitalize }}</a>
         </li>
       </ul>
-      <!-- <button class="clear-completed" v-show="todos.length > remaining" @click="clearCompleted">
-        Clear completed
+      <!-- <button class="clear-completed" v-if="todos.length > remaining" @click="clearCompleted">
+        清除已完成
       </button> -->
     </footer>
   </section>

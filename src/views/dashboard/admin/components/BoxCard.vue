@@ -6,7 +6,7 @@
       >
     </div>
     <div style="position: relative">
-      <pan-thumb :image="avatar" class="panThumb" />
+      <pan-thumb :image="avatar" class="pan-thumb" />
       <mallki class-name="mallki-text" text="vue-element-admin" />
       <div style="padding-top: 35px" class="progress-item">
         <span>Vue</span>
@@ -32,10 +32,8 @@
 import { mapGetters } from 'vuex'
 import PanThumb from '@/components/PanThumb'
 import Mallki from '@/components/TextHoverEffect/Mallki'
-
 export default {
   components: { PanThumb, Mallki },
-
   filters: {
     statusFilter(status) {
       const statusMap = {
@@ -92,7 +90,7 @@ export default {
     font-size: 20px;
     font-weight: bold;
   }
-  .panThumb {
+  .pan-thumb {
     z-index: 100;
     height: 70px !important;
     width: 70px !important;

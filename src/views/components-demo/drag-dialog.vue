@@ -1,24 +1,43 @@
 <template>
   <div class="components-container">
     <el-button type="primary" @click="dialogTableVisible = true">
-      open a Drag Dialog
+      打开一个拖拽对话框
     </el-button>
-    <el-dialog v-el-drag-dialog :visible.sync="dialogTableVisible" title="Shipping address" @dragDialog="handleDrag">
+    <el-dialog
+      v-el-drag-dialog
+      :visible.sync="dialogTableVisible"
+      title="送货地址"
+      @dragDialog="handleDrag"
+    >
       <el-select ref="select" v-model="value" placeholder="请选择">
-        <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+        <el-option
+          v-for="item in options"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value"
+        />
       </el-select>
       <el-table :data="gridData">
-        <el-table-column property="date" label="Date" width="150" />
-        <el-table-column property="name" label="Name" width="200" />
-        <el-table-column property="address" label="Address" />
+        <el-table-column
+          property="date"
+          label="日期"
+          width="150"
+          align="center"
+        />
+        <el-table-column
+          property="name"
+          label="名字"
+          width="200"
+          align="center"
+        />
+        <el-table-column property="address" label="地址" align="center" />
       </el-table>
     </el-dialog>
   </div>
 </template>
 
 <script>
-import elDragDialog from '@/directive/el-drag-dialog' // base on element-ui
-
+import elDragDialog from '@/directive/el-drag-dialog' // 基于 element-ui
 export default {
   name: 'DragDialogDemo',
   directives: { elDragDialog },
@@ -34,25 +53,25 @@ export default {
       value: '',
       gridData: [{
         date: '2016-05-02',
-        name: 'John Smith',
-        address: 'No.1518,  Jinshajiang Road, Putuo District'
+        name: '约翰史密斯',
+        address: '金沙路普陀区1518号'
       }, {
         date: '2016-05-04',
-        name: 'John Smith',
-        address: 'No.1518,  Jinshajiang Road, Putuo District'
+        name: '约翰史密斯',
+        address: '金沙路普陀区1518号'
       }, {
         date: '2016-05-01',
-        name: 'John Smith',
-        address: 'No.1518,  Jinshajiang Road, Putuo District'
+        name: '约翰史密斯',
+        address: '金沙路普陀区1518号'
       }, {
         date: '2016-05-03',
-        name: 'John Smith',
-        address: 'No.1518,  Jinshajiang Road, Putuo District'
+        name: '约翰史密斯',
+        address: '金沙路普陀区1518号'
       }]
     }
   },
   methods: {
-    // v-el-drag-dialog onDrag callback function
+    // v-el-drag-dialog onDrag 回调函数
     handleDrag() {
       this.$refs.select.blur()
     }

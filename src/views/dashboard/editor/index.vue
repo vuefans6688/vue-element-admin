@@ -18,7 +18,7 @@
       </div>
     </div>
     <div>
-      <img :src="emptyGif" class="emptyGif">
+      <img :src="emptyGif" class="empty-gif">
     </div>
   </div>
 </template>
@@ -47,7 +47,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.emptyGif {
+.empty-gif {
   display: block;
   width: 45%;
   margin: 0 auto;

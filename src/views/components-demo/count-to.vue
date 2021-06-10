@@ -1,7 +1,10 @@
 <template>
   <div class="components-container">
     <aside>
-      <a href="https://github.com/PanJiaChen/vue-countTo" target="_blank">countTo-component</a>
+      <a
+        href="https://github.com/PanJiaChen/vue-countTo"
+        target="_blank"
+      >计算总数组件</a>
     </aside>
     <count-to
       ref="example"
@@ -15,45 +18,81 @@
       :autoplay="false"
       class="example"
     />
-    <div style="margin-left: 25%;margin-top: 40px;">
-      <label class="label" for="startValInput">startVal:
-        <input v-model.number="setStartVal" type="number" name="startValInput">
+    <div style="margin-left: 25%; margin-top: 40px">
+      <label
+        class="label"
+        for="startValInput"
+      >起始值:
+        <input
+          v-model.number="setStartVal"
+          type="number"
+          name="startValInput"
+        >
       </label>
-      <label class="label" for="endValInput">endVal:
+      <label
+        class="label"
+        for="endValInput"
+      >结束值:
         <input v-model.number="setEndVal" type="number" name="endVaInput">
       </label>
-      <label class="label" for="durationInput">duration:
-        <input v-model.number="setDuration" type="number" name="durationInput">
+      <label
+        class="label"
+        for="durationInput"
+      >期间:
+        <input
+          v-model.number="setDuration"
+          type="number"
+          name="durationInput"
+        >
       </label>
-      <div class="startBtn example-btn" @click="start">
-        Start
-      </div>
-      <div class="pause-resume-btn example-btn" @click="pauseResume">
-        pause/resume
+      <div class="start-button example-button" @click="start">开始</div>
+      <div class="pause-resume-button example-button" @click="pauseResume">
+        暂停/继续
       </div>
       <br>
-      <label class="label" for="decimalsInput">decimals:
-        <input v-model.number="setDecimals" type="number" name="decimalsInput">
+      <label
+        class="label"
+        for="decimalsInput"
+      >小数:
+        <input
+          v-model.number="setDecimals"
+          type="number"
+          name="decimalsInput"
+        >
       </label>
-      <label class="label" for="separatorInput">separator:
+      <label
+        class="label"
+        for="separatorInput"
+      >分离器:
         <input v-model="setSeparator" name="separatorInput">
       </label>
-      <label class="label" for="prefixInput">prefix:
+      <label
+        class="label"
+        for="prefixInput"
+      >前缀:
         <input v-model="setPrefix" name="prefixInput">
       </label>
-      <label class="label" for="suffixInput">suffix:
+      <label
+        class="label"
+        for="suffixInput"
+      >后缀:
         <input v-model="setSuffix" name="suffixInput">
       </label>
     </div>
-    <aside>&lt;count-to :start-val=&#x27;{{ _startVal }}&#x27; :end-val=&#x27;{{ _endVal }}&#x27; :duration=&#x27;{{ _duration }}&#x27;
-      :decimals=&#x27;{{ _decimals }}&#x27; :separator=&#x27;{{ _separator }}&#x27; :prefix=&#x27;{{ _prefix }}&#x27; :suffix=&#x27;{{ _suffix }}&#x27;
-      :autoplay=false&gt;</aside>
+    <aside>
+      &lt;count-to :start-val=&#x27;{{ _startVal }}&#x27; :end-val=&#x27;{{
+        _endVal
+      }}&#x27; :duration=&#x27;{{ _duration }}&#x27; :decimals=&#x27;{{
+        _decimals
+      }}&#x27; :separator=&#x27;{{ _separator }}&#x27; :prefix=&#x27;{{
+        _prefix
+      }}&#x27; :suffix=&#x27;{{ _suffix }}&#x27; :autoplay=false&gt;
+    </aside>
   </div>
 </template>
 
 <script>
 import countTo from 'vue-count-to'
-
 export default {
   name: 'CountToDemo',
   components: { countTo },
@@ -123,7 +162,7 @@ export default {
 </script>
 
 <style scoped>
-.example-btn {
+.example-button {
   display: inline-block;
   margin-bottom: 0;
   font-weight: 500;
@@ -142,22 +181,22 @@ export default {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  -webkit-transition: all .3s cubic-bezier(.645, .045, .355, 1);
-  transition: all .3s cubic-bezier(.645, .045, .355, 1);
+  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   position: relative;
-  color: rgba(0, 0, 0, .65);
+  color: rgba(0, 0, 0, 0.65);
   background-color: #fff;
   border-color: #d9d9d9;
 }
 
-.example-btn:hover {
-  color: #4AB7BD;
+.example-button:hover {
+  color: #4ab7bd;
   background-color: #fff;
-  border-color: #4AB7BD;
+  border-color: #4ab7bd;
 }
 .example {
   font-size: 50px;
-  color: #F6416C;
+  color: #f6416c;
   display: block;
   margin: 10px 0;
   text-align: center;
@@ -181,38 +220,38 @@ input {
   cursor: text;
   font-size: 12px;
   line-height: 1.5;
-  color: rgba(0, 0, 0, .65);
+  color: rgba(0, 0, 0, 0.65);
   background-color: #fff;
   background-image: none;
   border: 1px solid #d9d9d9;
   border-radius: 4px;
-  -webkit-transition: all .3s;
-  transition: all .3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
-.startBtn {
+.start-button {
   margin-left: 20px;
   font-size: 20px;
-  color: #30B08F;
+  color: #30b08f;
   background-color: #fff;
 }
 
-.startBtn:hover {
-  background-color: #30B08F;
+.start-button:hover {
+  background-color: #30b08f;
   color: #fff;
-  border-color: #30B08F;
+  border-color: #30b08f;
 }
 
-.pause-resume-btn {
+.pause-resume-button {
   font-size: 20px;
-  color: #E65D6E;
+  color: #e65d6e;
   background-color: #fff;
 }
 
-.pause-resume-btn:hover {
-  background-color: #E65D6E;
+.pause-resume-button:hover {
+  background-color: #e65d6e;
   color: #fff;
-  border-color: #E65D6E;
+  border-color: #e65d6e;
 }
 </style>
 

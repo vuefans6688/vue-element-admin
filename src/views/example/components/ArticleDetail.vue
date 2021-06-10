@@ -1,16 +1,25 @@
 <template>
   <div class="createPost-container">
-    <el-form ref="postForm" :model="postForm" :rules="rules" class="form-container">
-
-      <sticky :z-index="10" :class-name="'sub-navbar '+postForm.status">
+    <el-form
+      ref="postForm"
+      :model="postForm"
+      :rules="rules"
+      class="form-container"
+    >
+      <sticky :z-index="10" :class-name="'sub-navbar ' + postForm.status">
         <CommentDropdown v-model="postForm.comment_disabled" />
         <PlatformDropdown v-model="postForm.platforms" />
         <SourceUrlDropdown v-model="postForm.source_uri" />
-        <el-button v-loading="loading" style="margin-left: 10px;" type="success" @click="submitForm">
-          Publish
+        <el-button
+          v-loading="loading"
+          style="margin-left: 10px"
+          type="success"
+          @click="submitForm"
+        >
+          发布
         </el-button>
         <el-button v-loading="loading" type="warning" @click="draftForm">
-          Draft
+          草稿
         </el-button>
       </sticky>
 
@@ -19,37 +28,71 @@
           <Warning />
 
           <el-col :span="24">
-            <el-form-item style="margin-bottom: 40px;" prop="title">
-              <MDinput v-model="postForm.title" :maxlength="100" name="name" required>
-                Title
+            <el-form-item style="margin-bottom: 40px" prop="title">
+              <MDinput
+                v-model="postForm.title"
+                :maxlength="100"
+                name="name"
+                required
+              >
+                标题
               </MDinput>
             </el-form-item>
 
             <div class="postInfo-container">
               <el-row>
                 <el-col :span="8">
-                  <el-form-item label-width="60px" label="Author:" class="postInfo-container-item">
-                    <el-select v-model="postForm.author" :remote-method="getRemoteUserList" filterable default-first-option remote placeholder="Search user">
-                      <el-option v-for="(item,index) in userListOptions" :key="item+index" :label="item" :value="item" />
+                  <el-form-item
+                    label-width="60px"
+                    label="作者:"
+                    class="postInfo-container-item"
+                  >
+                    <el-select
+                      v-model="postForm.author"
+                      :remote-method="getRemoteUserList"
+                      filterable
+                      default-first-option
+                      remote
+                      placeholder="搜索用户"
+                    >
+                      <el-option
+                        v-for="(item, index) in userListOptions"
+                        :key="item + index"
+                        :label="item"
+                        :value="item"
+                      />
                     </el-select>
                   </el-form-item>
                 </el-col>
 
                 <el-col :span="10">
-                  <el-form-item label-width="120px" label="Publish Time:" class="postInfo-container-item">
-                    <el-date-picker v-model="displayTime" type="datetime" format="yyyy-MM-dd HH:mm:ss" placeholder="Select date and time" />
+                  <el-form-item
+                    label-width="120px"
+                    label="发布时间:"
+                    class="postInfo-container-item"
+                  >
+                    <el-date-picker
+                      v-model="displayTime"
+                      type="datetime"
+                      format="yyyy-MM-dd HH:mm:ss"
+                      placeholder="选择时间好日期"
+                    />
                   </el-form-item>
                 </el-col>
 
                 <el-col :span="6">
-                  <el-form-item label-width="90px" label="Importance:" class="postInfo-container-item">
+                  <el-form-item
+                    label-width="90px"
+                    label="重要性:"
+                    class="postInfo-container-item"
+                  >
                     <el-rate
                       v-model="postForm.importance"
                       :max="3"
                       :colors="['#99A9BF', '#F7BA2A', '#FF9900']"
                       :low-threshold="1"
                       :high-threshold="3"
-                      style="display:inline-block"
+                      style="display: inline-block"
                     />
                   </el-form-item>
                 </el-col>
@@ -58,16 +101,30 @@
           </el-col>
         </el-row>
 
-        <el-form-item style="margin-bottom: 40px;" label-width="70px" label="Summary:">
-          <el-input v-model="postForm.content_short" :rows="1" type="textarea" class="article-textarea" autosize placeholder="Please enter the content" />
-          <span v-show="contentShortLength" class="word-counter">{{ contentShortLength }}words</span>
+        <el-form-item
+          style="margin-bottom: 40px"
+          label-width="70px"
+          label="摘要:"
+        >
+          <el-input
+            v-model="postForm.content_short"
+            :rows="1"
+            type="textarea"
+            class="article-textarea"
+            autosize
+            placeholder="请输入内容"
+          />
+          <span
+            v-show="contentShortLength"
+            class="word-counter"
+          >{{ contentShortLength }}文字</span>
         </el-form-item>
 
-        <el-form-item prop="content" style="margin-bottom: 30px;">
+        <el-form-item prop="content" style="margin-bottom: 30px">
           <Tinymce ref="editor" v-model="postForm.content" :height="400" />
         </el-form-item>
 
-        <el-form-item prop="image_uri" style="margin-bottom: 30px;">
+        <el-form-item prop="image_uri" style="margin-bottom: 30px">
           <Upload v-model="postForm.image_uri" />
         </el-form-item>
       </div>
@@ -154,10 +211,6 @@ export default {
       return this.postForm.content_short.length
     },
     displayTime: {
-      // set and get is useful when the data
-      // returned by the back end api is different from the front end
-      // back end return => "2013-06-25 06:59:25"
-      // front end need timestamp => 1372114765000
       get() {
         return (+new Date(this.postForm.display_time))
       },
@@ -171,9 +224,8 @@ export default {
       const id = this.$route.params && this.$route.params.id
       this.fetchData(id)
     }
-
-    // Why need to make a copy of this.$route here?
-    // Because if you enter this page and quickly switch tag, may be in the execution of the setTagsViewTitle function, this.$route is no longer pointing to the current page
+    // 为什么要复制这个。这里是$route？
+    // 因为如果您进入这个页面并快速切换标签，可能是在执行setTagsViewTitle函数时，这个.$route就不再指向当前页面了
     // https://github.com/PanJiaChen/vue-element-admin/issues/1221
     this.tempRoute = Object.assign({}, this.$route)
   },
@@ -181,31 +233,27 @@ export default {
     fetchData(id) {
       fetchArticle(id).then(response => {
         this.postForm = response.data
-
-        // just for test
+        // 只是为了测试
         this.postForm.title += `   Article Id:${this.postForm.id}`
         this.postForm.content_short += `   Article Id:${this.postForm.id}`
-
-        // set tagsview title
+        // 设置tagsView标题
         this.setTagsViewTitle()
-
-        // set page title
+        // 设置页面标题
         this.setPageTitle()
       }).catch(err => {
         console.log(err)
       })
     },
     setTagsViewTitle() {
-      const title = 'Edit Article'
+      const title = '编辑文章'
       const route = Object.assign({}, this.tempRoute, { title: `${title}-${this.postForm.id}` })
       this.$store.dispatch('tagsView/updateVisitedView', route)
     },
     setPageTitle() {
-      const title = 'Edit Article'
+      const title = '编辑文章'
       document.title = `${title} - ${this.postForm.id}`
     },
     submitForm() {
-      console.log(this.postForm)
       this.$refs.postForm.validate(valid => {
         if (valid) {
           this.loading = true
@@ -218,7 +266,6 @@ export default {
           this.postForm.status = 'published'
           this.loading = false
         } else {
-          console.log('error submit!!')
           return false
         }
       })

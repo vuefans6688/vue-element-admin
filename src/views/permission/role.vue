@@ -117,7 +117,7 @@ export default {
     },
     // 重构路由结构，使其看起来与侧边栏相同
     generateRoutes(routes, basePath = '/') {
-      const res = []
+      const result = []
       for (let route of routes) {
         // 跳过一些路由
         if (route.hidden) { continue }
@@ -133,16 +133,16 @@ export default {
         if (route.children) {
           data.children = this.generateRoutes(route.children, data.path)
         }
-        res.push(data)
+        result.push(data)
       }
-      return res
+      return result
     },
-    generateArr(routes) {
+    generateArray(routes) {
       let data = []
       routes.forEach(route => {
         data.push(route)
         if (route.children) {
-          const temp = this.generateArr(route.children)
+          const temp = this.generateArray(route.children)
           if (temp.length > 0) {
             data = [...data, ...temp]
           }
@@ -165,7 +165,7 @@ export default {
       this.role = deepClone(scope.row)
       this.$nextTick(() => {
         const routes = this.generateRoutes(this.role.routes)
-        this.$refs.tree.setCheckedNodes(this.generateArr(routes))
+        this.$refs.tree.setCheckedNodes(this.generateArray(routes))
         // 设置节点的选中状态不影响其父节点和子节点
         this.checkStrictly = false
       })
@@ -181,10 +181,12 @@ export default {
           this.rolesList.splice($index, 1)
           this.$message({
             type: 'success',
-            message: 'Delete succed!'
+            message: '删除成功!'
           })
         })
-        .catch(err => { console.error(err) })
+        .catch(error => {
+          console.error(error)
+        })
     },
     generateTree(routes, basePath = '/', checkedKeys) {
       const res = []

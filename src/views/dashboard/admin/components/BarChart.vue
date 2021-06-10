@@ -4,11 +4,9 @@
 
 <script>
 import echarts from 'echarts'
-require('echarts/theme/macarons') // echarts theme
+require('echarts/theme/macarons') // 图表主题
 import resize from './mixins/resize'
-
 const animationDuration = 6000
-
 export default {
   mixins: [resize],
   props: {
@@ -62,7 +60,7 @@ export default {
         },
         xAxis: [{
           type: 'category',
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
           axisTick: {
             alignWithLabel: true
           }
@@ -74,21 +72,21 @@ export default {
           }
         }],
         series: [{
-          name: 'pageA',
+          name: '页面A',
           type: 'bar',
           stack: 'vistors',
           barWidth: '60%',
           data: [79, 52, 200, 334, 390, 330, 220],
           animationDuration
         }, {
-          name: 'pageB',
+          name: '页面B',
           type: 'bar',
           stack: 'vistors',
           barWidth: '60%',
           data: [80, 52, 200, 334, 390, 330, 220],
           animationDuration
         }, {
-          name: 'pageC',
+          name: '页面C',
           type: 'bar',
           stack: 'vistors',
           barWidth: '60%',
