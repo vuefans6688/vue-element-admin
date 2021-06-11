@@ -3,8 +3,8 @@
     <div style="margin-bottom: 15px">您的角色: {{ roles }}</div>
     切换角色:
     <el-radio-group v-model="switchRoles">
-      <el-radio-button label="editor" />
-      <el-radio-button label="admin" />
+      <el-radio-button label="编辑" />
+      <el-radio-button label="管理员" />
     </el-radio-group>
   </div>
 </template>

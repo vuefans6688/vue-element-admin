@@ -44,16 +44,16 @@ export default {
     return {
       tableData: [
         {
-          name: 'fruit-1',
-          apple: 'apple-10',
-          banana: 'banana-10',
-          orange: 'orange-10'
+          name: '水果-1',
+          apple: '苹果-10',
+          banana: '香蕉-10',
+          orange: '桔子-10'
         },
         {
-          name: 'fruit-2',
-          apple: 'apple-20',
-          banana: 'banana-20',
-          orange: 'orange-20'
+          name: '水果-2',
+          apple: '苹果-20',
+          banana: '香蕉-20',
+          orange: '桔子-20'
         }
       ],
       key: 1, // table key
@@ -63,8 +63,8 @@ export default {
     }
   },
   watch: {
-    checkboxVal(valArr) {
-      this.formThead = this.formTheadOptions.filter(i => valArr.indexOf(i) >= 0)
+    checkboxVal(value) {
+      this.formThead = this.formTheadOptions.filter(i => value.indexOf(i) >= 0)
       this.key = this.key + 1// 为了保证table 每次都会重渲 In order to ensure the table will be re-rendered each time
     }
   }

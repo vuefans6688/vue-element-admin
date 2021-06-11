@@ -5,7 +5,6 @@
 <script>
 import echarts from 'echarts'
 import resize from './mixins/resize'
-
 export default {
   mixins: [resize],
   props: {
@@ -44,7 +43,6 @@ export default {
   methods: {
     initChart() {
       this.chart = echarts.init(document.getElementById(this.id))
-
       const xAxisData = []
       const data = []
       const data2 = []
@@ -95,7 +93,7 @@ export default {
           }
         },
         series: [{
-          name: 'back',
+          name: '后端',
           type: 'bar',
           data: data2,
           z: 1,
@@ -108,7 +106,7 @@ export default {
             }
           }
         }, {
-          name: 'Simulate Shadow',
+          name: '模拟阴影',
           type: 'line',
           data,
           z: 2,
@@ -129,7 +127,7 @@ export default {
             }
           }
         }, {
-          name: 'front',
+          name: '前端',
           type: 'bar',
           data,
           xAxisIndex: 1,

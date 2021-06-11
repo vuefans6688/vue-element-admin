@@ -1,13 +1,9 @@
 <template>
-  <div style="display:inline-block;">
-    <label class="radio-label">Cell Auto-Width: </label>
+  <div style="display: inline-block">
+    <label class="radio-label">单元格自适应宽度: </label>
     <el-radio-group v-model="autoWidth">
-      <el-radio :label="true" border>
-        True
-      </el-radio>
-      <el-radio :label="false" border>
-        False
-      </el-radio>
+      <el-radio :label="true" border> 真 </el-radio>
+      <el-radio :label="false" border> 假 </el-radio>
     </el-radio-group>
   </div>
 </template>

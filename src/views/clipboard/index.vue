@@ -4,7 +4,7 @@
       <el-tab-pane label="直接使用剪贴板" name="directly">
         <el-input
           v-model="inputData"
-          placeholder="Please input"
+          placeholder="请输入"
           style="width: 400px; max-width: 100%"
         />
         <el-button
@@ -18,7 +18,7 @@
       <el-tab-pane label="按v-directive指令使用剪贴板" name="v-directive">
         <el-input
           v-model="inputData"
-          placeholder="Please input"
+          placeholder="请输入"
           style="width: 400px; max-width: 100%"
         />
         <el-button

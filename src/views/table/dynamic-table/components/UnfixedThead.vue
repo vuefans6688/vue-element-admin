@@ -2,21 +2,26 @@
   <div class="app-container">
     <div class="filter-container">
       <el-checkbox-group v-model="formThead">
-        <el-checkbox label="apple">
-          apple
-        </el-checkbox>
-        <el-checkbox label="banana">
-          banana
-        </el-checkbox>
-        <el-checkbox label="orange">
-          orange
-        </el-checkbox>
+        <el-checkbox label="苹果"> 苹果 </el-checkbox>
+        <el-checkbox label="香蕉"> 香蕉 </el-checkbox>
+        <el-checkbox label="桔子"> 桔子 </el-checkbox>
       </el-checkbox-group>
     </div>
 
-    <el-table :data="tableData" border fit highlight-current-row style="width: 100%">
-      <el-table-column prop="name" label="fruitName" width="180" />
-      <el-table-column v-for="fruit in formThead" :key="fruit" :label="fruit">
+    <el-table
+      :data="tableData"
+      border
+      fit
+      highlight-current-row
+      style="width: 100%"
+    >
+      <el-table-column prop="name" label="水果名" width="180" align="center" />
+      <el-table-column
+        v-for="fruit in formThead"
+        :key="fruit"
+        :label="fruit"
+        align="center"
+      >
         <template slot-scope="scope">
           {{ scope.row[fruit] }}
         </template>
@@ -31,19 +36,19 @@ export default {
     return {
       tableData: [
         {
-          name: 'fruit-1',
-          apple: 'apple-10',
-          banana: 'banana-10',
-          orange: 'orange-10'
+          name: '水果-1',
+          apple: '苹果-10',
+          banana: '香蕉-10',
+          orange: '桔子-10'
         },
         {
-          name: 'fruit-2',
-          apple: 'apple-20',
-          banana: 'banana-20',
-          orange: 'orange-20'
+          name: '水果-2',
+          apple: '苹果-20',
+          banana: '香蕉-20',
+          orange: '桔子-20'
         }
       ],
-      formThead: ['apple', 'banana']
+      formThead: ['苹果', '香蕉']
     }
   }
 }

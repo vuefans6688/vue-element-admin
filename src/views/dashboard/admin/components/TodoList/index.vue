@@ -5,7 +5,7 @@
       <input
         class="new-todo"
         autocomplete="off"
-        placeholder="Todo List"
+        placeholder="清单列表"
         @keyup.enter="addTodo"
       >
     </header>
@@ -34,7 +34,7 @@
     <footer v-show="todos.length" class="footer">
       <span class="todo-count">
         <strong>{{ remaining }}</strong>
-        {{ remaining | pluralize("item") }} 左
+        左{{ remaining | pluralize("item") }}
       </span>
       <ul class="filters">
         <li v-for="(val, key) in filters" :key="key">
@@ -61,9 +61,9 @@ const filters = {
   completed: todos => todos.filter(todo => todo.done)
 }
 const defalutList = [
-  { text: 'star this repository', done: false },
-  { text: 'fork this repository', done: false },
-  { text: 'follow author', done: false },
+  { text: '启动此存储库', done: false },
+  { text: '分离此存储库', done: false },
+  { text: '跟随作者', done: false },
   { text: 'vue-element-admin', done: true },
   { text: 'vue', done: true },
   { text: 'element-ui', done: true },

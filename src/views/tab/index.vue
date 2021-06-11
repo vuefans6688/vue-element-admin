@@ -1,11 +1,30 @@
 <template>
   <div class="tab-container">
-    <el-tag>mounted times ：{{ createdTimes }}</el-tag>
-    <el-alert :closable="false" style="width:200px;display:inline-block;vertical-align: middle;margin-left:30px;" title="Tab with keep-alive" type="success" />
-    <el-tabs v-model="activeName" style="margin-top:15px;" type="border-card">
-      <el-tab-pane v-for="item in tabMapOptions" :key="item.key" :label="item.label" :name="item.key">
+    <el-tag>安装时间 ：{{ createdTimes }}</el-tag>
+    <el-alert
+      :closable="false"
+      style="
+        width: 200px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 30px;
+      "
+      title="Tab with keep-alive"
+      type="success"
+    />
+    <el-tabs v-model="activeName" style="margin-top: 15px" type="border-card">
+      <el-tab-pane
+        v-for="item in tabMapOptions"
+        :key="item.key"
+        :label="item.label"
+        :name="item.key"
+      >
         <keep-alive>
-          <tab-pane v-if="activeName==item.key" :type="item.key" @create="showCreatedTimes" />
+          <tab-pane
+            v-if="activeName === item.key"
+            :type="item.key"
+            @create="showCreatedTimes"
+          />
         </keep-alive>
       </el-tab-pane>
     </el-tabs>
@@ -21,10 +40,10 @@ export default {
   data() {
     return {
       tabMapOptions: [
-        { label: 'China', key: 'CN' },
-        { label: 'USA', key: 'US' },
-        { label: 'Japan', key: 'JP' },
-        { label: 'Eurozone', key: 'EU' }
+        { label: '中国', key: 'CN' },
+        { label: '美国', key: 'US' },
+        { label: '日本', key: 'JP' },
+        { label: '欧洲', key: 'EU' }
       ],
       activeName: 'CN',
       createdTimes: 0
@@ -36,7 +55,7 @@ export default {
     }
   },
   created() {
-    // init the default selected tab
+    // 初始化默认选中的选项卡
     const tab = this.$route.query.tab
     if (tab) {
       this.activeName = tab
@@ -51,7 +70,7 @@ export default {
 </script>
 
 <style scoped>
-  .tab-container {
-    margin: 30px;
-  }
+.tab-container {
+  margin: 30px;
+}
 </style>

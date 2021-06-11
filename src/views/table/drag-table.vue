@@ -1,63 +1,78 @@
 <template>
   <div class="app-container">
-    <!-- Note that row-key is necessary to get a correct row order. -->
-    <el-table ref="dragTable" v-loading="listLoading" :data="list" row-key="id" border fit highlight-current-row style="width: 100%">
+    <!-- 请注意，row-key对于获得正确的行顺序是必需的 -->
+    <el-table
+      ref="dragTable"
+      v-loading="listLoading"
+      :data="list"
+      row-key="id"
+      border
+      fit
+      highlight-current-row
+      style="width: 100%"
+    >
       <el-table-column align="center" label="ID" width="65">
-        <template slot-scope="{row}">
+        <template slot-scope="{ row }">
           <span>{{ row.id }}</span>
         </template>
       </el-table-column>
 
-      <el-table-column width="180px" align="center" label="Date">
-        <template slot-scope="{row}">
-          <span>{{ row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
+      <el-table-column width="180px" align="center" label="日期">
+        <template slot-scope="{ row }">
+          <span>{{ row.timestamp | parseTime("{y}-{m}-{d} {h}:{i}") }}</span>
         </template>
       </el-table-column>
 
-      <el-table-column min-width="300px" label="Title">
-        <template slot-scope="{row}">
+      <el-table-column min-width="300px" label="标题" align="center">
+        <template slot-scope="{ row }">
           <span>{{ row.title }}</span>
         </template>
       </el-table-column>
 
-      <el-table-column width="110px" align="center" label="Author">
-        <template slot-scope="{row}">
+      <el-table-column width="110px" align="center" label="作者">
+        <template slot-scope="{ row }">
           <span>{{ row.author }}</span>
         </template>
       </el-table-column>
 
-      <el-table-column width="100px" label="Importance">
-        <template slot-scope="{row}">
-          <svg-icon v-for="n in + row.importance" :key="n" icon-class="star" class="icon-star" />
+      <el-table-column width="100px" label="重要性" align="center">
+        <template slot-scope="{ row }">
+          <svg-icon
+            v-for="n in +row.importance"
+            :key="n"
+            icon-class="star"
+            class="icon-star"
+          />
         </template>
       </el-table-column>
 
-      <el-table-column align="center" label="Readings" width="95">
-        <template slot-scope="{row}">
+      <el-table-column align="center" label="阅读" width="95">
+        <template slot-scope="{ row }">
           <span>{{ row.pageviews }}</span>
         </template>
       </el-table-column>
 
-      <el-table-column class-name="status-col" label="Status" width="110">
-        <template slot-scope="{row}">
+      <el-table-column
+        class-name="status-col"
+        label="状态"
+        width="110"
+        align="center"
+      >
+        <template slot-scope="{ row }">
           <el-tag :type="row.status | statusFilter">
             {{ row.status }}
           </el-tag>
         </template>
       </el-table-column>
 
-      <el-table-column align="center" label="Drag" width="80">
+      <el-table-column align="center" label="拖拽" width="80">
         <template slot-scope="{}">
           <svg-icon class="drag-handler" icon-class="drag" />
         </template>
       </el-table-column>
     </el-table>
-    <div class="show-d">
-      <el-tag>The default order :</el-tag> {{ oldList }}
-    </div>
-    <div class="show-d">
-      <el-tag>The after dragging order :</el-tag> {{ newList }}
-    </div>
+    <div class="show-d"><el-tag>默认顺序:</el-tag> {{ oldList }}</div>
+    <div class="show-d"><el-tag>拖拽后的顺序:</el-tag> {{ newList }}</div>
   </div>
 </template>
 
@@ -110,17 +125,15 @@ export default {
     setSort() {
       const el = this.$refs.dragTable.$el.querySelectorAll('.el-table__body-wrapper > table > tbody')[0]
       this.sortable = Sortable.create(el, {
-        ghostClass: 'sortable-ghost', // Class name for the drop placeholder,
+        ghostClass: 'sortable-ghost', // 放置占位符的类名
         setData: function(dataTransfer) {
-          // to avoid Firefox bug
-          // Detail see : https://github.com/RubaXa/Sortable/issues/1012
+          // 详情见: https://github.com/RubaXa/Sortable/issues/1012
           dataTransfer.setData('Text', '')
         },
         onEnd: evt => {
           const targetRow = this.list.splice(evt.oldIndex, 1)[0]
           this.list.splice(evt.newIndex, 0, targetRow)
-
-          // for show the changes, you can delete in you code
+          // 要显示更改，可以在代码中删除
           const tempIndex = this.newList.splice(evt.oldIndex, 1)[0]
           this.newList.splice(evt.newIndex, 0, tempIndex)
         }
@@ -131,23 +144,23 @@ export default {
 </script>
 
 <style>
-.sortable-ghost{
-  opacity: .8;
-  color: #fff!important;
-  background: #42b983!important;
+.sortable-ghost {
+  opacity: 0.8;
+  color: #fff !important;
+  background: #42b983 !important;
 }
 </style>
 
 <style scoped>
-.icon-star{
-  margin-right:2px;
+.icon-star {
+  margin-right: 2px;
 }
-.drag-handler{
+.drag-handler {
   width: 20px;
   height: 20px;
   cursor: pointer;
 }
-.show-d{
+.show-d {
   margin-top: 15px;
 }
 </style>

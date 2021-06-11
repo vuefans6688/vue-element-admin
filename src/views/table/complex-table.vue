@@ -4,7 +4,6 @@
       <el-input
         v-model="listQuery.title"
         placeholder="标题"
-        style="width: 200px"
         class="filter-item"
         @keyup.enter.native="handleFilter"
       />
@@ -12,7 +11,7 @@
         v-model="listQuery.importance"
         placeholder="重要性"
         clearable
-        style="width: 90px"
+        style="width: 100%"
         class="filter-item"
       >
         <el-option
@@ -27,7 +26,7 @@
         placeholder="类型"
         clearable
         class="filter-item"
-        style="width: 130px"
+        style="width: 100%"
       >
         <el-option
           v-for="item in calendarTypeOptions"
@@ -38,7 +37,7 @@
       </el-select>
       <el-select
         v-model="listQuery.sort"
-        style="width: 140px"
+        style="width: 100%"
         class="filter-item"
         @change="handleFilter"
       >
@@ -52,6 +51,7 @@
       <el-button
         v-waves
         class="filter-item"
+        style="margin-left: 10px"
         type="primary"
         icon="el-icon-search"
         @click="handleFilter"
@@ -180,7 +180,7 @@
             编辑
           </el-button>
           <el-button
-            v-if="row.status != 'published'"
+            v-if="row.status !== 'published'"
             size="mini"
             type="success"
             @click="handleModifyStatus(row, 'published')"
@@ -188,14 +188,14 @@
             发布
           </el-button>
           <el-button
-            v-if="row.status != 'draft'"
+            v-if="row.status !== 'draft'"
             size="mini"
             @click="handleModifyStatus(row, 'draft')"
           >
             草稿
           </el-button>
           <el-button
-            v-if="row.status != 'deleted'"
+            v-if="row.status !== 'deleted'"
             size="mini"
             type="danger"
             @click="handleDelete(row, $index)"
@@ -406,8 +406,7 @@ export default {
       fetchList(this.listQuery).then(response => {
         this.list = response.data.items
         this.total = response.data.total
-
-        // Just to simulate the time of the request
+        // 只是为了模拟请求的时间
         setTimeout(() => {
           this.listLoading = false
         }, 1.5 * 1000)
@@ -460,7 +459,7 @@ export default {
     createData() {
       this.$refs['dataForm'].validate((valid) => {
         if (valid) {
-          this.temp.id = parseInt(Math.random() * 100) + 1024 // mock a id
+          this.temp.id = parseInt(Math.random() * 100) + 1024 // 模拟一个id
           this.temp.author = 'vue-element-admin'
           createArticle(this.temp).then(() => {
             this.list.unshift(this.temp)
@@ -476,7 +475,7 @@ export default {
       })
     },
     handleUpdate(row) {
-      this.temp = Object.assign({}, row) // copy obj
+      this.temp = Object.assign({}, row) // 拷贝对象
       this.temp.timestamp = new Date(this.temp.timestamp)
       this.dialogStatus = 'update'
       this.dialogFormVisible = true
@@ -488,7 +487,7 @@ export default {
       this.$refs['dataForm'].validate((valid) => {
         if (valid) {
           const tempData = Object.assign({}, this.temp)
-          tempData.timestamp = +new Date(tempData.timestamp) // change Thu Nov 30 2017 16:41:05 GMT+0800 (CST) to 1512031311464
+          tempData.timestamp = +new Date(tempData.timestamp) // 改变 Thu Nov 30 2017 16:41:05 GMT+0800 (CST) 至 1512031311464
           updateArticle(tempData).then(() => {
             const index = this.list.findIndex(v => v.id === this.temp.id)
             this.list.splice(index, 1, this.temp)
@@ -521,8 +520,8 @@ export default {
     handleDownload() {
       this.downloadLoading = true
       import('@/vendor/Export2Excel').then(excel => {
-        const tHeader = ['timestamp', 'title', 'type', 'importance', 'status']
-        const filterVal = ['timestamp', 'title', 'type', 'importance', 'status']
+        const tHeader = ['日期', '标题', '类型', '重要性', '状态']
+        const filterVal = ['日期', '标题', '类型', '重要性', '状态']
         const data = this.formatJson(filterVal)
         excel.export_json_to_excel({
           header: tHeader,
