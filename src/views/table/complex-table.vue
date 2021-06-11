@@ -5,13 +5,14 @@
         v-model="listQuery.title"
         placeholder="标题"
         class="filter-item"
+        style="width: 200px"
         @keyup.enter.native="handleFilter"
       />
       <el-select
         v-model="listQuery.importance"
         placeholder="重要性"
         clearable
-        style="width: 100%"
+        style="width: 140px"
         class="filter-item"
       >
         <el-option
@@ -26,7 +27,7 @@
         placeholder="类型"
         clearable
         class="filter-item"
-        style="width: 100%"
+        style="width: 140px"
       >
         <el-option
           v-for="item in calendarTypeOptions"
@@ -37,7 +38,7 @@
       </el-select>
       <el-select
         v-model="listQuery.sort"
-        style="width: 100%"
+        style="width: 140px"
         class="filter-item"
         @change="handleFilter"
       >

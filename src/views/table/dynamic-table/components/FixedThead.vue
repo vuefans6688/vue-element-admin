@@ -16,12 +16,7 @@
       highlight-current-row
       style="width: 100%"
     >
-      <el-table-column
-        prop="name"
-        label="fruitName"
-        width="180"
-        align="center"
-      />
+      <el-table-column prop="name" label="水果名" width="180" align="center" />
       <el-table-column
         v-for="fruit in formThead"
         :key="fruit"
