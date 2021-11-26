@@ -11,7 +11,7 @@
       <dnd-list
         :list1="list1"
         :list2="list2"
-        list1-title="List"
+        list1-title="列表"
         list2-title="文章库"
       />
     </div>
@@ -36,9 +36,9 @@ export default {
   methods: {
     getData() {
       this.listLoading = true
-      fetchList().then(response => {
-        this.list1 = response.data.items.splice(0, 5)
-        this.list2 = response.data.items
+      fetchList().then(result => {
+        this.list1 = result.data.items.splice(0, 5)
+        this.list2 = result.data.items
       })
     }
   }

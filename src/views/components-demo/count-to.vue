@@ -132,7 +132,7 @@ export default {
     _decimals() {
       if (this.setDecimals) {
         if (this.setDecimals < 0 || this.setDecimals > 20) {
-          alert('digits argument must be between 0 and 20')
+          alert('数字参数必须介于0和20之间')
           return 0
         }
         return this.setDecimals

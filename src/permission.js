@@ -29,7 +29,7 @@ router.beforeEach(async(to, from, next) => {
       } else {
         try {
           // 获取用户信息
-          // 注意：角色必须是对象数组！例如：['admin']或，['developer'，'editor']
+          // 注意: 角色必须是对象数组！例如: ['admin']或，['developer'，'editor']
           const { roles } = await store.dispatch('user/getInfo')
           // 基于角色生成可访问路由
           const accessRoutes = await store.dispatch('permission/generateRoutes', roles)

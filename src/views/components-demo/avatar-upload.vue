@@ -3,8 +3,8 @@
     <aside>
       这是基于
       <a class="link-type" href="//github.com/dai-siki/vue-image-crop-upload">
-        vue-image-crop-upload</a>. 因为我只使用vue@1
-      版本，而且目前与mockjs不兼容，我自己修改的，如果你要用的话，最好用官方版本。
+        vue-image-crop-upload</a>. 因为我只使用vue@1版本，而且目前与mockjs不兼容，我自己修改的，如果你要用的话，
+      最好用官方版本。
     </aside>
 
     <pan-thumb :image="image" />
