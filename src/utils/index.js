@@ -297,15 +297,15 @@ export function deepClone(source) {
   if (!source && typeof source !== 'object') {
     throw new Error('error arguments', 'deepClone')
   }
-  const targetObj = source.constructor === Array ? [] : {}
+  const targetObject = source.constructor === Array ? [] : {}
   Object.keys(source).forEach(keys => {
     if (source[keys] && typeof source[keys] === 'object') {
-      targetObj[keys] = deepClone(source[keys])
+      targetObject[keys] = deepClone(source[keys])
     } else {
-      targetObj[keys] = source[keys]
+      targetObject[keys] = source[keys]
     }
   })
-  return targetObj
+  return targetObject
 }
 
 /**
