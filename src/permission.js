@@ -39,7 +39,7 @@ router.beforeEach(async(to, from, next) => {
           // 设置replace为true，这样导航就不会留下历史记录
           next({ ...to, replace: true })
         } catch (error) {
-          // 删除令牌并转到登录页以便重新登录
+          // 删除令牌并跳转到登录页以便重新登录
           await store.dispatch('user/resetToken')
           Message.error(error || 'Has Error')
           next(`/login?redirect=${to.path}`)
