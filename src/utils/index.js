@@ -114,16 +114,22 @@ export function getQueryObject(url) {
  * @param {string} input value
  * @returns {number} output value
  */
-export function byteLength(str) {
+export function byteLength(val) {
   // returns the byte length of an utf8 string
-  let s = str.length
-  for (var i = str.length - 1; i >= 0; i--) {
-    const code = str.charCodeAt(i)
-    if (code > 0x7f && code <= 0x7ff) s++
-    else if (code > 0x7ff && code <= 0xffff) s += 2
-    if (code >= 0xDC00 && code <= 0xDFFF) i--
+  let str = val.length
+  for (let i = val.length - 1; i >= 0; i--) {
+    const code = val.charCodeAt(i)
+    if (code > 0x7f && code <= 0x7ff) {
+      str += 1
+    }
+    else if (code > 0x7ff && code <= 0xffff) {
+      str += 2
+    }
+    if (code >= 0xDC00 && code <= 0xDFFF) {
+      i--
+    }
   }
-  return s
+  return str
 }
 
 /**
@@ -164,8 +170,8 @@ export function paramObject(url) {
     return {}
   }
   const obj = {}
-  const searchArr = search.split('&')
-  searchArr.forEach(v => {
+  const arr = search.split('&')
+  arr.forEach(v => {
     const index = v.indexOf('=')
     if (index !== -1) {
       const name = v.substring(0, index)
@@ -254,7 +260,6 @@ export function debounce(func, wait, immediate) {
   const later = function() {
     // 据上一次触发时间间隔
     const last = +new Date() - timestamp
-
     // 上次被包装函数被调用时间间隔 last 小于设定时间间隔 wait
     if (last < wait && last > 0) {
       timeout = setTimeout(later, wait - last)
@@ -267,7 +272,6 @@ export function debounce(func, wait, immediate) {
       }
     }
   }
-
   return function(...args) {
     context = this
     timestamp = +new Date()
@@ -278,7 +282,6 @@ export function debounce(func, wait, immediate) {
       result = func.apply(context, args)
       context = args = null
     }
-
     return result
   }
 }
