@@ -7,32 +7,32 @@
         </div>
         <div style="margin-bottom: 50px">
           <el-col :span="4" class="text-center">
-            <router-link class="pan-btn blue-btn" to="/documentation/index">
+            <router-link class="pan-button blue-button" to="/documentation/index">
               文档
             </router-link>
           </el-col>
           <el-col :span="4" class="text-center">
-            <router-link class="pan-btn light-blue-btn" to="/icon/index">
+            <router-link class="pan-button light-blue-button" to="/icon/index">
               图标
             </router-link>
           </el-col>
           <el-col :span="4" class="text-center">
-            <router-link class="pan-btn pink-btn" to="/excel/export-excel">
+            <router-link class="pan-button pink-button" to="/excel/export-excel">
               Excel
             </router-link>
           </el-col>
           <el-col :span="4" class="text-center">
-            <router-link class="pan-btn green-btn" to="/table/complex-table">
+            <router-link class="pan-button green-button" to="/table/complex-table">
               表格
             </router-link>
           </el-col>
           <el-col :span="4" class="text-center">
-            <router-link class="pan-btn tiffany-btn" to="/example/create">
+            <router-link class="pan-button tiffany-button" to="/example/create">
               表单
             </router-link>
           </el-col>
           <el-col :span="4" class="text-center">
-            <router-link class="pan-btn yellow-btn" to="/theme/index">
+            <router-link class="pan-button yellow-button" to="/theme/index">
               主题
             </router-link>
           </el-col>
@@ -128,7 +128,6 @@ import MdInput from '@/components/MDinput'
 import Mallki from '@/components/TextHoverEffect/Mallki'
 import DropdownMenu from '@/components/Share/DropdownMenu'
 import waves from '@/directive/waves/index.js' // 水波纹指令
-
 export default {
   name: 'ComponentMixinDemo',
   components: {

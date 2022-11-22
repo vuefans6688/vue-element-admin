@@ -2,7 +2,6 @@
   <div class="drawer-container">
     <div>
       <h3 class="drawer-title">页面样式设置</h3>
-
       <div class="drawer-item">
         <span>主题颜色</span>
         <theme-picker
@@ -10,17 +9,14 @@
           @change="themeChange"
         />
       </div>
-
       <div class="drawer-item">
         <span>打开Tags-View</span>
         <el-switch v-model="tagsView" class="drawer-switch" />
       </div>
-
       <div class="drawer-item">
         <span>固定头部</span>
         <el-switch v-model="fixedHeader" class="drawer-switch" />
       </div>
-
       <div class="drawer-item">
         <span>侧边栏Logo</span>
         <el-switch v-model="sidebarLogo" class="drawer-switch" />
@@ -31,7 +27,6 @@
 
 <script>
 import ThemePicker from '@/components/ThemePicker'
-
 export default {
   components: { ThemePicker },
   data() {

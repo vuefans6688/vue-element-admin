@@ -27,7 +27,6 @@
 
 <script>
 import splitPane from 'vue-splitpane'
-
 export default {
   name: 'SplitpaneDemo',
   components: { splitPane },

@@ -14,9 +14,7 @@
 
     <el-table-column width="180px" align="center" label="日期">
       <template slot-scope="scope">
-        <span>{{
-          scope.row.timestamp | parseTime("{y}-{m}-{d} {h}:{i}")
-        }}</span>
+        <span>{{ scope.row.timestamp | parseTime("{y}-{m}-{d} {h}:{i}") }}</span>
       </template>
     </el-table-column>
 

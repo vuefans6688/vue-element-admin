@@ -129,7 +129,6 @@
 
 <script>
 import BackToTop from '@/components/BackToTop'
-
 export default {
   name: 'BackToTopDemo',
   components: { BackToTop },

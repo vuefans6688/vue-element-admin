@@ -95,12 +95,12 @@ export default {
       if (this.multipleSelection.length) {
         this.downloadLoading = true
         import('@/vendor/Export2Excel').then(excel => {
-          const tHeader = ['ID', '标题', '作者', '阅读', '日期']
-          const filterVal = ['id', '标题', '作者', '阅读', '日期']
+          const tableHeader = ['ID', '标题', '作者', '阅读', '日期']
+          const filterValues = ['id', '标题', '作者', '阅读', '日期']
           const list = this.multipleSelection
-          const data = this.formatJson(filterVal, list)
+          const data = this.formatJson(filterValues, list)
           excel.export_json_to_excel({
-            header: tHeader,
+            header: tableHeader,
             data,
             filename: this.filename
           })
@@ -114,8 +114,8 @@ export default {
         })
       }
     },
-    formatJson(filterVal, jsonData) {
-      return jsonData.map(v => filterVal.map(j => v[j]))
+    formatJson(filterValues, jsonData) {
+      return jsonData.map(v => filterValues.map(j => v[j]))
     }
   }
 }

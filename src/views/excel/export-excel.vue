@@ -53,9 +53,7 @@
       <el-table-column align="center" label="日期" width="220">
         <template slot-scope="scope">
           <i class="el-icon-time" />
-          <span>{{
-            scope.row.timestamp | parseTime("{y}-{m}-{d} {h}:{i}")
-          }}</span>
+          <span>{{ scope.row.timestamp | parseTime("{y}-{m}-{d} {h}:{i}") }}</span>
         </template>
       </el-table-column>
     </el-table>
@@ -97,12 +95,12 @@ export default {
     handleDownload() {
       this.downloadLoading = true
       import('@/vendor/Export2Excel').then(excel => {
-        const tHeader = ['ID', '标题', '作者', '阅读', '日期']
-        const filterVal = ['id', '标题', '作者', '阅读', '日期']
+        const tableHeader = ['ID', '标题', '作者', '阅读', '日期']
+        const filterValues = ['id', '标题', '作者', '阅读', '日期']
         const list = this.list
-        const data = this.formatJson(filterVal, list)
+        const data = this.formatJson(filterValues, list)
         excel.export_json_to_excel({
-          header: tHeader,
+          header: tableHeader,
           data,
           filename: this.filename,
           autoWidth: this.autoWidth,
@@ -111,8 +109,8 @@ export default {
         this.downloadLoading = false
       })
     },
-    formatJson(filterVal, jsonData) {
-      return jsonData.map(v => filterVal.map(j => {
+    formatJson(filterValues, jsonData) {
+      return jsonData.map(v => filterValues.map(j => {
         if (j === 'timestamp') {
           return parseTime(v[j])
         } else {

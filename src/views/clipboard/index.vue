@@ -37,7 +37,6 @@
 <script>
 import clip from '@/utils/clipboard' // 直接使用剪贴板
 import clipboard from '@/directive/clipboard/index.js' // 按v-directive指令使用剪贴板
-
 export default {
   name: 'ClipboardDemo',
   directives: {

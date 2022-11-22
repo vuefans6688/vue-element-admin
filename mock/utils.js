@@ -8,8 +8,8 @@ function paramObject (url) {
     return {}
   }
   const obj = {}
-  const searchArr = search.split('&')
-  searchArr.forEach(v => {
+  const arr = search.split('&')
+  arr.forEach(v => {
     const index = v.indexOf('=')
     if (index !== -1) {
       const name = v.substring(0, index)

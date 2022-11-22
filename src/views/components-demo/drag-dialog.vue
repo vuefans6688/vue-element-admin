@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import elDragDialog from '@/directive/el-drag-dialog' // 基于 element-ui
+import elDragDialog from '@/directive/el-drag-dialog' // 基于element-ui
 export default {
   name: 'DragDialogDemo',
   directives: { elDragDialog },

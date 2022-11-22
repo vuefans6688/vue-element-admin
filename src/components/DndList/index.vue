@@ -1,41 +1,25 @@
 <template>
-  <div class="dndList">
-    <div :style="{ width: width1 }" class="dndList-list">
+  <div class="dnd-list-container">
+    <div :style="{ width: width1 }" class="dnd-list">
       <h3>{{ list1Title }}</h3>
-      <draggable
-        :set-data="setData"
-        :list="list1"
-        group="article"
-        class="dragArea"
-      >
-        <div
-          v-for="element in list1"
-          :key="element.id"
-          class="list-complete-item"
-        >
+      <draggable :set-data="setData" :list="list1" group="article" class="drag-area">
+        <div v-for="element in list1" :key="element.id" class="list-complete-item">
           <div class="list-complete-item-handle">
             {{ element.id }}[{{ element.author }}] {{ element.title }}
           </div>
           <div style="position: absolute; right: 0px">
-            <span
-              style="float: right; margin-top: -20px; margin-right: 5px"
-              @click="deleteEle(element)"
-            >
+            <span style="float: right; margin-top: -20px; margin-right: 5px" @click="deleteElement(element)">
               <i style="color: #ff4949" class="el-icon-delete" />
             </span>
           </div>
         </div>
       </draggable>
     </div>
-    <div :style="{ width: width2 }" class="dndList-list">
+    <div :style="{ width: width2 }" class="dnd-list">
       <h3>{{ list2Title }}</h3>
-      <draggable :list="list2" group="article" class="dragArea">
-        <div
-          v-for="element in list2"
-          :key="element.id"
-          class="list-complete-item"
-        >
-          <div class="list-complete-item-handle2" @click="pushEle(element)">
+      <draggable :list="list2" group="article" class="drag-area">
+        <div v-for="element in list2" :key="element.id" class="list-complete-item">
+          <div class="list-complete-item-handle2" @click="addElement(element)">
             {{ element.id }} [{{ element.author }}] {{ element.title }}
           </div>
         </div>
@@ -46,7 +30,6 @@
 
 <script>
 import draggable from 'vuedraggable'
-
 export default {
   name: 'DndList',
   components: { draggable },
@@ -87,28 +70,28 @@ export default {
     isNotInList2(v) {
       return this.list2.every(k => v.id !== k.id)
     },
-    deleteEle(ele) {
+    deleteElement(el) {
       for (const item of this.list1) {
-        if (item.id === ele.id) {
+        if (item.id === el.id) {
           const index = this.list1.indexOf(item)
           this.list1.splice(index, 1)
           break
         }
       }
-      if (this.isNotInList2(ele)) {
-        this.list2.unshift(ele)
+      if (this.isNotInList2(el)) {
+        this.list2.unshift(el)
       }
     },
-    pushEle(ele) {
+    addElement(el) {
       for (const item of this.list2) {
-        if (item.id === ele.id) {
+        if (item.id === el.id) {
           const index = this.list2.indexOf(item)
           this.list2.splice(index, 1)
           break
         }
       }
-      if (this.isNotInList1(ele)) {
-        this.list1.push(ele)
+      if (this.isNotInList1(el)) {
+        this.list1.push(el)
       }
     },
     setData(dataTransfer) {
@@ -121,7 +104,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.dndList {
+.dnd-list-container {
   background: #fff;
   padding-bottom: 40px;
   &:after {
@@ -129,13 +112,13 @@ export default {
     display: table;
     clear: both;
   }
-  .dndList-list {
+  .dnd-list {
     float: left;
     padding-bottom: 30px;
     &:first-of-type {
       margin-right: 2%;
     }
-    .dragArea {
+    .drag-area {
       margin-top: 15px;
       min-height: 50px;
       padding-bottom: 30px;

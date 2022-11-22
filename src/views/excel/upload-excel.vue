@@ -34,12 +34,10 @@ export default {
   },
   methods: {
     beforeUpload(file) {
-      const isLt1M = file.size / 1024 / 1024 < 1
-
-      if (isLt1M) {
+      const isLimit1M = file.size / 1024 / 1024 < 1
+      if (isLimit1M) {
         return true
       }
-
       this.$message({
         message: '请不要上传大于1M的文件',
         type: 'warning'

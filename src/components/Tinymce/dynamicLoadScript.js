@@ -9,7 +9,6 @@ function loadedTinymce() {
 const dynamicLoadScript = (src, callback) => {
   const existingScript = document.getElementById(src)
   const cb = callback || function() { }
-
   if (!existingScript) {
     const script = document.createElement('script')
     script.src = src // src url for the third-party library being loaded.
@@ -19,7 +18,6 @@ const dynamicLoadScript = (src, callback) => {
     const onEnd = 'onload' in script ? stdOnEnd : ieOnEnd
     onEnd(script)
   }
-
   if (existingScript && cb) {
     if (loadedTinymce()) {
       cb(null, existingScript)
@@ -27,7 +25,6 @@ const dynamicLoadScript = (src, callback) => {
       callbacks.push(cb)
     }
   }
-
   function stdOnEnd(script) {
     script.onload = function() {
       // this.onload = null here is necessary
@@ -43,7 +40,6 @@ const dynamicLoadScript = (src, callback) => {
       cb(new Error('Failed to load ' + src), script)
     }
   }
-
   function ieOnEnd(script) {
     script.onreadystatechange = function() {
       if (this.readyState !== 'complete' && this.readyState !== 'loaded') return

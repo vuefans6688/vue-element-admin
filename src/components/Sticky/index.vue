@@ -11,7 +11,7 @@
       }"
     >
       <slot>
-        <div>sticky</div>
+        <div>粘贴</div>
       </slot>
     </div>
   </div>

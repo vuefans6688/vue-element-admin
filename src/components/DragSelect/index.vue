@@ -13,7 +13,6 @@
 
 <script>
 import Sortable from 'sortablejs'
-
 export default {
   name: 'DragSelect',
   props: {
@@ -40,14 +39,14 @@ export default {
       const el = this.$refs.dragSelect.$el.querySelectorAll('.el-select__tags > span')[0]
       this.sortable = Sortable.create(el, {
         ghostClass: 'sortable-ghost', // Class name for the drop placeholder,
-        setData: function(dataTransfer) {
+        setData: dataTransfer => {
           dataTransfer.setData('Text', '')
           // to avoid Firefox bug
           // Detail see : https://github.com/RubaXa/Sortable/issues/1012
         },
-        onEnd: evt => {
-          const targetRow = this.value.splice(evt.oldIndex, 1)[0]
-          this.value.splice(evt.newIndex, 0, targetRow)
+        onEnd: event => {
+          const targetRow = this.value.splice(event.oldIndex, 1)[0]
+          this.value.splice(event.newIndex, 0, targetRow)
         }
       })
     }

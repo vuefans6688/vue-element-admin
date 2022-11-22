@@ -14,12 +14,10 @@
         文档
       </a>
     </aside>
-
     <div class="editor-container">
       <el-tag class="tag-title"> 基本: </el-tag>
       <markdown-editor v-model="content1" height="300px" />
     </div>
-
     <div class="editor-container">
       <el-tag class="tag-title"> Markdown 模式: </el-tag>
       <markdown-editor
@@ -29,7 +27,6 @@
         height="200px"
       />
     </div>
-
     <div class="editor-container">
       <el-tag class="tag-title"> 自定义工具栏: </el-tag>
       <markdown-editor
@@ -37,7 +34,6 @@
         :options="{ toolbarItems: ['heading', 'bold', 'italic'] }"
       />
     </div>
-
     <div class="editor-container">
       <el-tag class="tag-title"> I18n: </el-tag>
       <el-alert
@@ -52,7 +48,6 @@
         height="300px"
       />
     </div>
-
     <el-button
       style="margin-top: 80px"
       type="primary"
@@ -67,7 +62,6 @@
 
 <script>
 import MarkdownEditor from '@/components/MarkdownEditor'
-
 const content = `
 **This is test**
 

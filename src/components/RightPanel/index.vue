@@ -1,7 +1,7 @@
 <template>
-  <div ref="rightPanel" :class="{ show: show }" class="rightPanel-container">
-    <div class="rightPanel-background" />
-    <div class="rightPanel">
+  <div ref="rightPanel" :class="{ show: show }" class="right-panel-container">
+    <div class="right-panel-background" />
+    <div class="right-panel">
       <div
         class="handle-button"
         :style="{ top: buttonTop + 'px', 'background-color': theme }"
@@ -9,7 +9,7 @@
       >
         <i :class="show ? 'el-icon-close' : 'el-icon-setting'" />
       </div>
-      <div class="rightPanel-items">
+      <div class="right-panel-items">
         <slot />
       </div>
     </div>
@@ -18,7 +18,6 @@
 
 <script>
 import { addClass, removeClass } from '@/utils'
-
 export default {
   name: 'RightPanel',
   props: {
@@ -47,9 +46,9 @@ export default {
         this.addEventClick()
       }
       if (value) {
-        addClass(document.body, 'showRightPanel')
+        addClass(document.body, 'show-right-panel')
       } else {
-        removeClass(document.body, 'showRightPanel')
+        removeClass(document.body, 'show-right-panel')
       }
     }
   },
@@ -57,31 +56,31 @@ export default {
     this.insertToBody()
   },
   beforeDestroy() {
-    const elx = this.$refs.rightPanel
-    elx.remove()
+    const el = this.$refs.rightPanel
+    el.remove()
   },
   methods: {
     addEventClick() {
       window.addEventListener('click', this.closeSidebar)
     },
-    closeSidebar(evt) {
-      const parent = evt.target.closest('.rightPanel')
+    closeSidebar(e) {
+      const parent = e.target.closest('.right-panel')
       if (!parent) {
         this.show = false
         window.removeEventListener('click', this.closeSidebar)
       }
     },
     insertToBody() {
-      const elx = this.$refs.rightPanel
+      const el = this.$refs.rightPanel
       const body = document.querySelector('body')
-      body.insertBefore(elx, body.firstChild)
+      body.insertBefore(el, body.firstChild)
     }
   }
 }
 </script>
 
 <style>
-.showRightPanel {
+.show-right-panel {
   overflow: hidden;
   position: relative;
   width: calc(100% - 15px);
@@ -89,7 +88,7 @@ export default {
 </style>
 
 <style lang="scss" scoped>
-.rightPanel-background {
+.right-panel-background {
   position: fixed;
   top: 0;
   left: 0;
@@ -99,7 +98,7 @@ export default {
   z-index: -1;
 }
 
-.rightPanel {
+.right-panel {
   width: 100%;
   max-width: 260px;
   height: 100vh;
@@ -116,14 +115,14 @@ export default {
 .show {
   transition: all 0.3s cubic-bezier(0.7, 0.3, 0.1, 1);
 
-  .rightPanel-background {
+  .right-panel-background {
     z-index: 20000;
     opacity: 1;
     width: 100%;
     height: 100%;
   }
 
-  .rightPanel {
+  .right-panel {
     transform: translate(0);
   }
 }

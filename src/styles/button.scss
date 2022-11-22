@@ -1,6 +1,6 @@
 @import './variables.scss';
 
-@mixin colorBtn($color) {
+@mixin colorButton($color) {
   background: $color;
 
   &:hover {
@@ -13,35 +13,35 @@
   }
 }
 
-.blue-btn {
-  @include colorBtn($blue)
+.blue-button {
+  @include colorButton($blue)
 }
 
-.light-blue-btn {
-  @include colorBtn($light-blue)
+.light-blue-button {
+  @include colorButton($light-blue)
 }
 
-.red-btn {
-  @include colorBtn($red)
+.red-button {
+  @include colorButton($red)
 }
 
-.pink-btn {
-  @include colorBtn($pink)
+.pink-button {
+  @include colorButton($pink)
 }
 
-.green-btn {
-  @include colorBtn($green)
+.green-button {
+  @include colorButton($green)
 }
 
-.tiffany-btn {
-  @include colorBtn($tiffany)
+.tiffany-button {
+  @include colorButton($tiffany)
 }
 
-.yellow-btn {
-  @include colorBtn($yellow)
+.yellow-button {
+  @include colorButton($yellow)
 }
 
-.pan-btn {
+.pan-button {
   font-size: 14px;
   color: #fff;
   padding: 14px 36px;

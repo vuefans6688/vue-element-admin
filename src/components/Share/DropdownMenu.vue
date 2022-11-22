@@ -23,7 +23,7 @@ export default {
   props: {
     items: {
       type: Array,
-      default: function() {
+      default: () => {
         return []
       }
     },
@@ -45,8 +45,8 @@ export default {
 }
 </script>
 
-<style lang="scss" >
-$n: 9; //和items.length 相同
+<style lang="scss">
+$n: 9; // 和items.length相同
 $t: 0.1s;
 .share-dropdown-menu {
   width: 250px;

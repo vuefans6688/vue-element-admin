@@ -27,13 +27,12 @@ export function parseTime(time, cFormat) {
         time = time.replace(new RegExp(/-/gm), '/')
       }
     }
-
     if ((typeof time === 'number') && (time.toString().length === 10)) {
       time = time * 1000
     }
     date = new Date(time)
   }
-  const formatObj = {
+  const formatObject = {
     y: date.getFullYear(),
     m: date.getMonth() + 1,
     d: date.getDate(),
@@ -42,13 +41,13 @@ export function parseTime(time, cFormat) {
     s: date.getSeconds(),
     a: date.getDay()
   }
-  const time_str = format.replace(/{([ymdhisa])+}/g, (result, key) => {
-    const value = formatObj[key]
+  const timeString = format.replace(/{([ymdhisa])+}/g, (result, key) => {
+    const value = formatObject[key]
     // Note: getDay() returns 0 on Sunday
     if (key === 'a') { return ['日', '一', '二', '三', '四', '五', '六'][value] }
     return value.toString().padStart(2, '0')
   })
-  return time_str
+  return timeString
 }
 
 /**
@@ -64,13 +63,11 @@ export function formatTime(time, option) {
   }
   const d = new Date(time)
   const now = Date.now()
-
   const diff = (now - d) / 1000
-
   if (diff < 30) {
     return '刚刚'
   } else if (diff < 3600) {
-    // less 1 hour
+    // 小于1小时
     return Math.ceil(diff / 60) + '分钟前'
   } else if (diff < 3600 * 24) {
     return Math.ceil(diff / 3600) + '小时前'

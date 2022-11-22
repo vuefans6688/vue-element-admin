@@ -458,7 +458,7 @@ export default {
       })
     },
     createData() {
-      this.$refs['dataForm'].validate((valid) => {
+      this.$refs['dataForm'].validate(valid => {
         if (valid) {
           this.temp.id = parseInt(Math.random() * 100) + 1024 // 模拟一个id
           this.temp.author = 'vue-element-admin'
@@ -485,12 +485,12 @@ export default {
       })
     },
     updateData() {
-      this.$refs['dataForm'].validate((valid) => {
+      this.$refs['dataForm'].validate(valid => {
         if (valid) {
           const tempData = Object.assign({}, this.temp)
           tempData.timestamp = +new Date(tempData.timestamp) // 改变 Thu Nov 30 2017 16:41:05 GMT+0800 (CST) 至 1512031311464
           updateArticle(tempData).then(() => {
-            const index = this.list.findIndex(v => v.id === this.temp.id)
+            const index = this.list.findIndex(item => item.id === this.temp.id)
             this.list.splice(index, 1, this.temp)
             this.dialogFormVisible = false
             this.$notify({
@@ -521,19 +521,19 @@ export default {
     handleDownload() {
       this.downloadLoading = true
       import('@/vendor/Export2Excel').then(excel => {
-        const tHeader = ['日期', '标题', '类型', '重要性', '状态']
-        const filterVal = ['日期', '标题', '类型', '重要性', '状态']
-        const data = this.formatJson(filterVal)
+        const tableHeader = ['日期', '标题', '类型', '重要性', '状态']
+        const filterValues = ['日期', '标题', '类型', '重要性', '状态']
+        const data = this.formatJson(filterValues)
         excel.export_json_to_excel({
-          header: tHeader,
+          header: tableHeader,
           data,
           filename: 'table-list'
         })
         this.downloadLoading = false
       })
     },
-    formatJson(filterVal) {
-      return this.list.map(v => filterVal.map(j => {
+    formatJson(filterValues) {
+      return this.list.map(v => filterValues.map(j => {
         if (j === 'timestamp') {
           return parseTime(v[j])
         } else {

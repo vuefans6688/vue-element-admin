@@ -66,7 +66,7 @@
       </el-table-column>
 
       <el-table-column align="center" label="拖拽" width="80">
-        <template slot-scope="{}">
+        <template slot-scope="{ row }">
           <svg-icon class="drag-handler" icon-class="drag" />
         </template>
       </el-table-column>
@@ -126,16 +126,16 @@ export default {
       const el = this.$refs.dragTable.$el.querySelectorAll('.el-table__body-wrapper > table > tbody')[0]
       this.sortable = Sortable.create(el, {
         ghostClass: 'sortable-ghost', // 放置占位符的类名
-        setData: function(dataTransfer) {
+        setData: dataTransfer => {
           // 详情见: https://github.com/RubaXa/Sortable/issues/1012
           dataTransfer.setData('Text', '')
         },
-        onEnd: evt => {
-          const targetRow = this.list.splice(evt.oldIndex, 1)[0]
-          this.list.splice(evt.newIndex, 0, targetRow)
+        onEnd: e => {
+          const targetRow = this.list.splice(e.oldIndex, 1)[0]
+          this.list.splice(e.newIndex, 0, targetRow)
           // 要显示更改，可以在代码中删除
-          const tempIndex = this.newList.splice(evt.oldIndex, 1)[0]
-          this.newList.splice(evt.newIndex, 0, tempIndex)
+          const tempIndex = this.newList.splice(e.oldIndex, 1)[0]
+          this.newList.splice(e.newIndex, 0, tempIndex)
         }
       })
     }

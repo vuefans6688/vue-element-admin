@@ -23,9 +23,9 @@
     />
   </div>
 </template>
+
 <script>
 import Kanban from '@/components/Kanban'
-
 export default {
   name: 'DragKanbanDemo',
   components: {
@@ -54,6 +54,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss">
 .board {
   width: 1000px;

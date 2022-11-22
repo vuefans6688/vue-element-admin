@@ -18,7 +18,7 @@ router.beforeEach(async(to, from, next) => {
   const hasToken = getToken()
   if (hasToken) {
     if (to.path === '/login') {
-      // 如果已登录，请重定向到主页
+      // 如果已登录，请重定向到首页
       next({ path: '/' })
       NProgress.done() // hack: https://github.com/PanJiaChen/vue-element-admin/pull/2939
     } else {

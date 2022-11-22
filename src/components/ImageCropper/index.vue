@@ -5,7 +5,7 @@
         <i class="vicp-icon4" />
       </div>
 
-      <div v-show="step == 1" class="vicp-step1">
+      <div v-show="step === 1" class="vicp-step1">
         <div
           class="vicp-drop-area"
           @dragleave="preventDefault"
@@ -14,7 +14,7 @@
           @click="handleClick"
           @drop="handleChange"
         >
-          <i v-show="loading != 1" class="vicp-icon1">
+          <i v-show="loading !== 1" class="vicp-icon1">
             <i class="vicp-icon1-arrow" />
             <i class="vicp-icon1-body" />
             <i class="vicp-icon1-bottom" />
@@ -25,7 +25,7 @@
           }}</span>
           <input
             v-show="false"
-            v-if="step == 1"
+            v-if="step === 1"
             ref="fileinput"
             type="file"
             @change="handleChange"
@@ -40,7 +40,7 @@
         </div>
       </div>
 
-      <div v-if="step == 2" class="vicp-step2">
+      <div v-if="step === 2" class="vicp-step2">
         <div class="vicp-crop">
           <div v-show="true" class="vicp-crop-left">
             <div class="vicp-img-container">
@@ -138,7 +138,7 @@
         </div>
       </div>
 
-      <div v-if="step == 3" class="vicp-step3">
+      <div v-if="step === 3" class="vicp-step3">
         <div class="vicp-upload">
           <span v-show="loading === 1" class="vicp-loading">{{
             lang.loading
@@ -360,8 +360,8 @@ export default {
         transform: 'rotate(' + scale.degree + 'deg)', // 旋转时 左侧原始图旋转样式
         '-ms-transform': 'rotate(' + scale.degree + 'deg)', // 兼容IE9
         '-moz-transform': 'rotate(' + scale.degree + 'deg)', // 兼容FireFox
-        '-webkit-transform': 'rotate(' + scale.degree + 'deg)', // 兼容Safari 和 chrome
-        '-o-transform': 'rotate(' + scale.degree + 'deg)' // 兼容 Opera
+        '-webkit-transform': 'rotate(' + scale.degree + 'deg)', // 兼容Safari和chrome
+        '-o-transform': 'rotate(' + scale.degree + 'deg)' // 兼容Opera
       }
     },
     // 原图蒙版属性
@@ -397,10 +397,8 @@ export default {
       const { sourceImgMasking, sourceImgContainer } = this
       const sic = sourceImgContainer
       const sim = sourceImgMasking
-      const w =
-        sim.width === sic.width ? sim.width : (sic.width - sim.width) / 2
-      const h =
-        sim.height === sic.height ? sim.height : (sic.height - sim.height) / 2
+      const w = sim.width === sic.width ? sim.width : (sic.width - sim.width) / 2
+      const h = sim.height === sic.height ? sim.height : (sic.height - sim.height) / 2
       return {
         width: w + 'px',
         height: h + 'px'
@@ -633,7 +631,7 @@ export default {
         if (scale.rotateRight) {
           const degree = ++scale.degree
           this.createImg(degree)
-          setTimeout(function() {
+          setTimeout(() => {
             rotate()
           }, 60)
         }
@@ -648,7 +646,7 @@ export default {
         if (scale.rotateLeft) {
           const degree = --scale.degree
           this.createImg(degree)
-          setTimeout(function() {
+          setTimeout(() => {
             rotate()
           }, 60)
         }
@@ -669,7 +667,7 @@ export default {
         if (scale.zoomAddOn) {
           const range = scale.range >= 100 ? 100 : ++scale.range
           this.zoomImg(range)
-          setTimeout(function() {
+          setTimeout(() => {
             zoom()
           }, 60)
         }
@@ -688,7 +686,7 @@ export default {
         if (scale.zoomSubOn) {
           const range = scale.range <= 0 ? 0 : --scale.range
           this.zoomImg(range)
-          setTimeout(function() {
+          setTimeout(() => {
             zoom()
           }, 60)
         }

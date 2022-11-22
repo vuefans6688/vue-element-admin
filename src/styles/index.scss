@@ -3,7 +3,7 @@
 @import './transition.scss';
 @import './element-ui.scss';
 @import './sidebar.scss';
-@import './btn.scss';
+@import './button.scss';
 
 body {
   height: 100%;
@@ -81,7 +81,7 @@ div:focus {
   cursor: pointer;
 }
 
-.inlineBlock {
+.inline-block {
   display: block;
 }
 
@@ -97,7 +97,7 @@ div:focus {
 }
 
 aside {
-  background: #eef1f6;
+  background-color: #eef1f6;
   padding: 8px 24px;
   margin-bottom: 20px;
   border-radius: 2px;
@@ -119,7 +119,7 @@ aside {
   }
 }
 
-//main-container全局样式
+// main-container全局样式
 .app-container {
   padding: 20px;
 }

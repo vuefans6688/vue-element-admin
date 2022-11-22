@@ -79,16 +79,16 @@ export default {
     handleDownload() {
       this.downloadLoading = true
       import('@/vendor/Export2Zip').then(zip => {
-        const tHeader = ['ID', '标题', '作者', '阅读', '日期']
-        const filterVal = ['id', '标题', '作者', '阅读', '日期']
+        const tableHeader = ['ID', '标题', '作者', '阅读', '日期']
+        const filterValues = ['id', '标题', '作者', '阅读', '日期']
         const list = this.list
-        const data = this.formatJson(filterVal, list)
-        zip.export_txt_to_zip(tHeader, data, this.filename, this.filename)
+        const data = this.formatJson(filterValues, list)
+        zip.export_txt_to_zip(tableHeader, data, this.filename, this.filename)
         this.downloadLoading = false
       })
     },
-    formatJson(filterVal, jsonData) {
-      return jsonData.map(v => filterVal.map(j => v[j]))
+    formatJson(filterValues, jsonData) {
+      return jsonData.map(v => filterValues.map(j => v[j]))
     }
   }
 }

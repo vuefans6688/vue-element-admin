@@ -10,7 +10,7 @@
   .sidebar-container {
     transition: width 0.28s;
     width: $sideBarWidth !important;
-    background-color: $menuBg;
+    background-color: $menuBackground;
     height: 100%;
     position: fixed;
     font-size: 0px;
@@ -83,7 +83,7 @@
     & .nest-menu .el-submenu>.el-submenu__title,
     & .el-submenu .el-menu-item {
       min-width: $sideBarWidth !important;
-      background-color: $subMenuBg !important;
+      background-color: $subMenuBackground !important;
 
       &:hover {
         background-color: $subMenuHover !important;

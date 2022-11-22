@@ -2,7 +2,7 @@
   <div
     v-loading.fullscreen.lock="fullscreenLoading"
     class="main-article"
-    element-loading-text="Efforts to generate PDF"
+    element-loading-text="努力生成PDF"
   >
     <div class="article__heading">
       <div class="article__heading__title">

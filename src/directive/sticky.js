@@ -7,28 +7,24 @@ vueSticky.install = Vue => {
       const stickyTop = params.stickyTop || 0
       const zIndex = params.zIndex || 1000
       const elStyle = el.style
-
       elStyle.position = '-webkit-sticky'
       elStyle.position = 'sticky'
       // if the browser support css sticky（Currently Safari, Firefox and Chrome Canary）
       // if (~elStyle.position.indexOf('sticky')) {
-      //     elStyle.top = `${stickyTop}px`;
-      //     elStyle.zIndex = zIndex;
+      //     elStyle.top = `${stickyTop}px`
+      //     elStyle.zIndex = zIndex
       //     return
       // }
       const elHeight = el.getBoundingClientRect().height
       const elWidth = el.getBoundingClientRect().width
       elStyle.cssText = `top: ${stickyTop}px; z-index: ${zIndex}`
-
-      const parentElm = el.parentNode || document.documentElement
+      const parentElement = el.parentNode || document.documentElement
       const placeholder = document.createElement('div')
       placeholder.style.display = 'none'
       placeholder.style.width = `${elWidth}px`
       placeholder.style.height = `${elHeight}px`
-      parentElm.insertBefore(placeholder, el)
-
+      parentElement.insertBefore(placeholder, el)
       let active = false
-
       const getScroll = (target, top) => {
         const prop = top ? 'pageYOffset' : 'pageXOffset'
         const method = top ? 'scrollTop' : 'scrollLeft'

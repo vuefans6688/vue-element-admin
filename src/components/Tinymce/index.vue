@@ -5,10 +5,10 @@
     :style="{ width: containerWidth }"
   >
     <textarea :id="tinymceId" class="tinymce-textarea" />
-    <div class="editor-custom-btn-container">
+    <div class="editor-custom-button-container">
       <editorImage
         color="#1890ff"
-        class="editor-upload-btn"
+        class="editor-upload-button"
         @successCBK="imageSuccessCBK"
       />
     </div>
@@ -24,17 +24,15 @@ import editorImage from './components/EditorImage'
 import plugins from './plugins'
 import toolbar from './toolbar'
 import load from './dynamicLoadScript'
-
 // why use this cdn, detail see https://github.com/PanJiaChen/tinymce-all-in-one
 const tinymceCDN = 'https://cdn.jsdelivr.net/npm/tinymce-all-in-one@4.9.3/tinymce.min.js'
-
 export default {
   name: 'Tinymce',
   components: { editorImage },
   props: {
     id: {
       type: String,
-      default: function() {
+      default: () => {
         return 'vue-tinymce-' + +new Date() + ((Math.random() * 1000).toFixed(0) + '')
       }
     },
@@ -237,19 +235,19 @@ export default {
   z-index: -1;
 }
 
-.editor-custom-btn-container {
+.editor-custom-button-container {
   position: absolute;
   right: 4px;
   top: 4px;
   /*z-index: 2005;*/
 }
 
-.fullscreen .editor-custom-btn-container {
+.fullscreen .editor-custom-button-container {
   z-index: 10000;
   position: fixed;
 }
 
-.editor-upload-btn {
+.editor-upload-button {
   display: inline-block;
 }
 </style>

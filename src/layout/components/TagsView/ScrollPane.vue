@@ -11,7 +11,6 @@
 
 <script>
 const tagAndTagSpacing = 4 // 标签和标签间距
-
 export default {
   name: 'ScrollPane',
   data() {

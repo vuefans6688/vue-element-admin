@@ -1,14 +1,14 @@
 const Mock = require('mockjs')
 
-const NameList = []
+const nameList = []
 const count = 100
 
 for (let i = 0; i < count; i++) {
-  NameList.push(Mock.mock({
+  nameList.push(Mock.mock({
     name: '@first'
   }))
 }
-NameList.push({ name: 'mock-Pan' })
+nameList.push({ name: 'mock-Pan' })
 
 module.exports = [
   // 用户名搜索
@@ -17,7 +17,7 @@ module.exports = [
     type: 'get',
     response: config => {
       const { name } = config.query
-      const mockNameList = NameList.filter(item => {
+      const mockNameList = nameList.filter(item => {
         const lowerCaseName = item.name.toLowerCase()
         return !(name && lowerCaseName.indexOf(name.toLowerCase()) < 0)
       })

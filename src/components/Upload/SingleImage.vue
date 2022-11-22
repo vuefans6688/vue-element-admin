@@ -1,7 +1,7 @@
 <template>
   <div class="upload-container">
     <el-upload
-      :data="dataObj"
+      :data="dataObject"
       :multiple="false"
       :show-file-list="false"
       :on-success="handleImageSuccess"
@@ -25,7 +25,6 @@
 
 <script>
 import { getToken } from '@/api/qiniu'
-
 export default {
   name: 'SingleImageUpload',
   props: {
@@ -37,7 +36,7 @@ export default {
   data() {
     return {
       tempUrl: '',
-      dataObj: { token: '', key: '' }
+      dataObject: { token: '', key: '' }
     }
   },
   computed: {
@@ -61,8 +60,8 @@ export default {
         getToken().then(response => {
           const key = response.data.qiniu_key
           const token = response.data.qiniu_token
-          _self._data.dataObj.token = token
-          _self._data.dataObj.key = key
+          _self._data.dataObject.token = token
+          _self._data.dataObject.key = key
           this.tempUrl = response.data.qiniu_url
           resolve(true)
         }).catch(err => {

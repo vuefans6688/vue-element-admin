@@ -21,7 +21,7 @@
         type="primary"
         @click="handleUpload"
       >
-        浏览器
+        浏览
       </el-button>
     </div>
   </div>
@@ -29,11 +29,10 @@
 
 <script>
 import XLSX from 'xlsx'
-
 export default {
   props: {
     beforeUpload: Function, // eslint-disable-line
-    onSuccess: Function// eslint-disable-line
+    onSuccess: Function // eslint-disable-line
   },
   data() {
     return {
@@ -60,7 +59,6 @@ export default {
         return
       }
       const rawFile = files[0] // only use files[0]
-
       if (!this.isExcel(rawFile)) {
         this.$message.error('Only supports upload .xlsx, .xls, .csv suffix files')
         return false
@@ -85,7 +83,6 @@ export default {
     },
     upload(rawFile) {
       this.$refs['excel-upload-input'].value = null // fix can't select the same excel
-
       if (!this.beforeUpload) {
         this.readerData(rawFile)
         return

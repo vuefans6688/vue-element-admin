@@ -23,8 +23,7 @@
 </template>
 
 <script>
-import ElDragSelect from '@/components/DragSelect' // 基于 element-ui
-
+import ElDragSelect from '@/components/DragSelect' // 基于element-ui
 export default {
   name: 'DragSelectDemo',
   components: { ElDragSelect },

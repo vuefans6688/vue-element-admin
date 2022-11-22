@@ -1,5 +1,5 @@
 <template>
-  <div class="createPost-container">
+  <div class="create-post-container">
     <el-form
       ref="postForm"
       :model="postForm"
@@ -23,7 +23,7 @@
         </el-button>
       </sticky>
 
-      <div class="createPost-main-container">
+      <div class="create-post-main-container">
         <el-row>
           <Warning />
 
@@ -39,13 +39,13 @@
               </MDinput>
             </el-form-item>
 
-            <div class="postInfo-container">
+            <div class="post-info-container">
               <el-row>
                 <el-col :span="8">
                   <el-form-item
                     label-width="60px"
                     label="作者:"
-                    class="postInfo-container-item"
+                    class="post-info-container-item"
                   >
                     <el-select
                       v-model="postForm.author"
@@ -69,7 +69,7 @@
                   <el-form-item
                     label-width="120px"
                     label="发布时间:"
-                    class="postInfo-container-item"
+                    class="post-info-container-item"
                   >
                     <el-date-picker
                       v-model="displayTime"
@@ -84,7 +84,7 @@
                   <el-form-item
                     label-width="90px"
                     label="重要性:"
-                    class="postInfo-container-item"
+                    class="post-info-container-item"
                   >
                     <el-rate
                       v-model="postForm.importance"
@@ -299,18 +299,18 @@ export default {
 <style lang="scss" scoped>
 @import "~@/styles/mixin.scss";
 
-.createPost-container {
+.create-post-container {
   position: relative;
 
-  .createPost-main-container {
+  .create-post-main-container {
     padding: 40px 45px 20px 50px;
 
-    .postInfo-container {
+    .post-info-container {
       position: relative;
       @include clearfix;
       margin-bottom: 10px;
 
-      .postInfo-container-item {
+      .post-info-container-item {
         float: left;
       }
     }

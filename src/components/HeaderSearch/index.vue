@@ -27,11 +27,8 @@
 </template>
 
 <script>
-// fuse is a lightweight fuzzy-search module
-// make search results more in line with expectations
 import Fuse from 'fuse.js'
 import path from 'path'
-
 export default {
   name: 'HeaderSearch',
   data() {
@@ -107,26 +104,23 @@ export default {
     // And generate the internationalized title
     generateRoutes(routes, basePath = '/', prefixTitle = []) {
       let res = []
-
       for (const router of routes) {
         // skip hidden router
-        if (router.hidden) { continue }
-
+        if (router.hidden) { 
+          continue 
+        }
         const data = {
           path: path.resolve(basePath, router.path),
           title: [...prefixTitle]
         }
-
         if (router.meta && router.meta.title) {
           data.title = [...data.title, router.meta.title]
-
           if (router.redirect !== 'noRedirect') {
             // only push the routes with title
             // special case: need to exclude parent router without redirect
             res.push(data)
           }
         }
-
         // recursive child routes
         if (router.children) {
           const tempRoutes = this.generateRoutes(router.children, data.path, data.title)

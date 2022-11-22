@@ -127,10 +127,10 @@ export default {
       this.listLoading = true
       const { data } = await fetchList(this.listQuery)
       const items = data.items
-      this.list = items.map(v => {
-        this.$set(v, 'edit', false) // https://vuejs.org/v2/guide/reactivity.html
-        v.originalTitle = v.title //  将在用户单击“取消”按钮时使用
-        return v
+      this.list = items.map(object => {
+        this.$set(object, 'edit', false) // https://vuejs.org/v2/guide/reactivity.html
+        object.originalTitle = object.title //  将在用户单击"取消"按钮时使用
+        return object
       })
       this.listLoading = false
     },

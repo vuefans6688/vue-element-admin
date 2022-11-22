@@ -1,6 +1,6 @@
 <template>
   <div class="tab-container">
-    <el-tag>安装时间 ：{{ createdTimes }}</el-tag>
+    <el-tag>安装时间: {{ createdTimes }}</el-tag>
     <el-alert
       :closable="false"
       style="

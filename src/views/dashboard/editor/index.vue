@@ -3,18 +3,14 @@
     <div class="clearfix">
       <pan-thumb :image="avatar" style="float: left">
         您的角色:
-        <span v-for="item in roles" :key="item" class="pan-info-roles">{{
-          item
-        }}</span>
+        <span v-for="item in roles" :key="item" class="pan-info-roles">{{ item }}</span>
       </pan-thumb>
       <github-corner
         style="position: absolute; top: 0px; border: 0; right: 0"
       />
       <div class="info-container">
-        <span class="display_name">{{ name }}</span>
-        <span
-          style="font-size: 20px; padding-top: 20px; display: inline-block"
-        >编辑的仪表板</span>
+        <span class="display-name">{{ name }}</span>
+        <span style="font-size: 20px; padding-top: 20px; display: inline-block">编辑的仪表盘</span>
       </div>
     </div>
     <div>
@@ -27,7 +23,6 @@
 import { mapGetters } from 'vuex'
 import PanThumb from '@/components/PanThumb'
 import GithubCorner from '@/components/GithubCorner'
-
 export default {
   name: 'DashboardEditor',
   components: { PanThumb, GithubCorner },
@@ -68,7 +63,7 @@ export default {
     margin-left: 190px;
     height: 150px;
     line-height: 200px;
-    .display_name {
+    .display-name {
       font-size: 48px;
       line-height: 48px;
       color: #212121;

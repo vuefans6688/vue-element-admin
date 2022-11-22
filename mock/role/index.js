@@ -15,7 +15,7 @@ const roles = [
     key: 'editor',
     name: 'editor',
     description: '普通编辑。可以查看除权限页以外的所有页',
-    routes: routes.filter(i => i.path !== '/permission')  // 只是个玩笑
+    routes: routes.filter(item => item.path !== '/permission')  // 开个玩笑
   },
   {
     key: 'visitor',
