@@ -1,8 +1,4 @@
 /**
- * Created by PanJiaChen on 16/11/18.
- */
-
-/**
  * Parse the time to string
  * @param {(Object|string|number)} time
  * @param {string} pattern
@@ -256,7 +252,6 @@ export function getTime(type) {
  */
 export function debounce(func, wait, immediate) {
   let timeout, args, context, timestamp, result
-
   const later = function() {
     // 据上一次触发时间间隔
     const last = +new Date() - timestamp
@@ -312,7 +307,7 @@ export function deepClone(source) {
  * @param {Array} arr
  * @returns {Array}
  */
-export function uniqueArr(arr) {
+export function uniqueArray(arr) {
   return Array.from(new Set(arr))
 }
 
@@ -331,17 +326,17 @@ export function createUniqueString() {
  * @param {string} cls
  * @returns {boolean}
  */
-export function hasClass(ele, cls) {
-  return !!ele.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'))
+export function hasClass(el, cls) {
+  return !!el.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'))
 }
 
 /**
  * Add class to element
- * @param {HTMLElement} elm
+ * @param {HTMLElement} el
  * @param {string} cls
  */
-export function addClass(ele, cls) {
-  if (!hasClass(ele, cls)) ele.className += ' ' + cls
+export function addClass(el, cls) {
+  if (!hasClass(el, cls)) el.className += ' ' + cls
 }
 
 /**
@@ -349,9 +344,9 @@ export function addClass(ele, cls) {
  * @param {HTMLElement} elm
  * @param {string} cls
  */
-export function removeClass(ele, cls) {
-  if (hasClass(ele, cls)) {
+export function removeClass(el, cls) {
+  if (hasClass(el, cls)) {
     const reg = new RegExp('(\\s|^)' + cls + '(\\s|$)')
-    ele.className = ele.className.replace(reg, ' ')
+    el.className = el.className.replace(reg, ' ')
   }
 }
