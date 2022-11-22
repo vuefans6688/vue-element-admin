@@ -1,9 +1,7 @@
 <template>
   <el-card class="box-card-component" style="margin-left: 8px">
     <div slot="header" class="box-card-header">
-      <img
-        src="https://wpimg.wallstcn.com/e7d23d71-cf19-4b90-a1cc-f56af8c0903d.png"
-      >
+      <img src="https://wpimg.wallstcn.com/e7d23d71-cf19-4b90-a1cc-f56af8c0903d.png" alt="" />
     </div>
     <div style="position: relative">
       <pan-thumb :image="avatar" class="pan-thumb" />
@@ -52,11 +50,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([
-      'name',
-      'avatar',
-      'roles'
-    ])
+    ...mapGetters(['name', 'avatar', 'roles'])
   }
 }
 </script>
@@ -68,6 +62,7 @@ export default {
   }
 }
 </style>
+
 <style lang="scss" scoped>
 .box-card-component {
   .box-card-header {

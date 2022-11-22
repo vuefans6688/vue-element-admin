@@ -21,7 +21,6 @@
         <el-tag type="info">文档</el-tag>
       </a>
     </div>
-
     <el-table
       v-loading="listLoading"
       :data="list"
@@ -67,7 +66,6 @@ import { parseTime } from '@/utils'
 import FilenameOption from './components/FilenameOption'
 import AutoWidthOption from './components/AutoWidthOption'
 import BookTypeOption from './components/BookTypeOption'
-
 export default {
   name: 'ExportExcel',
   components: { FilenameOption, AutoWidthOption, BookTypeOption },

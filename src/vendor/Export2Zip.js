@@ -8,7 +8,7 @@ export function export_txt_to_zip(th, jsonData, txtName, zipName) {
   const zip_name = zipName || 'file'
   const data = jsonData
   let txtData = `${th}\r\n`
-  data.forEach((row) => {
+  data.forEach(row => {
     let tempStr = ''
     tempStr = row.toString()
     txtData += `${tempStr}\r\n`

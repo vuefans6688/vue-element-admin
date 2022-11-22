@@ -31,7 +31,6 @@ import UserCard from './components/UserCard'
 import Activity from './components/Activity'
 import Timeline from './components/Timeline'
 import Account from './components/Account'
-
 export default {
   name: 'Profile',
   components: { UserCard, Activity, Timeline, Account },
@@ -42,11 +41,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([
-      'name',
-      'avatar',
-      'roles'
-    ])
+    ...mapGetters(['name', 'avatar', 'roles'])
   },
   created() {
     this.getUser()

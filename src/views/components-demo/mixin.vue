@@ -39,7 +39,6 @@
         </div>
       </el-card>
     </el-row>
-
     <el-row :gutter="20" style="margin-top: 50px">
       <el-col :span="6">
         <el-card class="box-card">
@@ -62,7 +61,6 @@
           </div>
         </el-card>
       </el-col>
-
       <el-col :span="6">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
@@ -79,18 +77,16 @@
           </div>
         </el-card>
       </el-col>
-
       <el-col :span="6">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
             <span>水波纹 waves v-directive</span>
           </div>
           <div class="component-item">
-            <el-button v-waves type="primary"> 水波纹效果 </el-button>
+            <el-button v-waves type="primary">水波纹效果</el-button>
           </div>
         </el-card>
       </el-col>
-
       <el-col :span="6">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
@@ -102,7 +98,6 @@
         </el-card>
       </el-col>
     </el-row>
-
     <el-row :gutter="20" style="margin-top: 50px">
       <el-col :span="8">
         <el-card class="box-card">
@@ -158,9 +153,9 @@ export default {
         { title: '基础篇', href: 'https://juejin.im/post/59097cd7a22b9d0065fb61d2' },
         { title: '登录权限篇', href: 'https://juejin.im/post/591aa14f570c35006961acac' },
         { title: '实战篇', href: 'https://juejin.im/post/593121aa0ce4630057f70d35' },
-        { title: 'vue-admin-template 篇', href: 'https://juejin.im/post/595b4d776fb9a06bbe7dba56' },
-        { title: 'v4.0 篇', href: 'https://juejin.im/post/5c92ff94f265da6128275a85' },
-        { title: '优雅的使用 icon', href: 'https://juejin.im/post/59bb864b5188257e7a427c09' }
+        { title: 'vue-admin-template篇', href: 'https://juejin.im/post/595b4d776fb9a06bbe7dba56' },
+        { title: 'v4.0篇', href: 'https://juejin.im/post/5c92ff94f265da6128275a85' },
+        { title: '优雅的使用icon', href: 'https://juejin.im/post/59bb864b5188257e7a427c09' }
       ]
     }
   }

@@ -22,7 +22,6 @@
 
 <script>
 import { transactionList } from '@/api/remote-search'
-
 export default {
   filters: {
     statusFilter(status) {
@@ -32,8 +31,8 @@ export default {
       }
       return statusMap[status]
     },
-    orderNoFilter(str) {
-      return str.substring(0, 30)
+    orderNoFilter(order) {
+      return order.substring(0, 30)
     }
   },
   data() {

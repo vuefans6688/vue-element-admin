@@ -11,26 +11,22 @@
         <span>{{ scope.row.id }}</span>
       </template>
     </el-table-column>
-
     <el-table-column width="180px" align="center" label="日期">
       <template slot-scope="scope">
         <span>{{ scope.row.timestamp | parseTime("{y}-{m}-{d} {h}:{i}") }}</span>
       </template>
     </el-table-column>
-
     <el-table-column min-width="300px" label="标题" align="center">
       <template slot-scope="{ row }">
         <span>{{ row.title }}</span>
         <el-tag>{{ row.type }}</el-tag>
       </template>
     </el-table-column>
-
     <el-table-column width="110px" align="center" label="作者">
       <template slot-scope="scope">
         <span>{{ scope.row.author }}</span>
       </template>
     </el-table-column>
-
     <el-table-column width="120px" label="重要性">
       <template slot-scope="scope">
         <svg-icon
@@ -40,13 +36,11 @@
         />
       </template>
     </el-table-column>
-
     <el-table-column align="center" label="阅读" width="95">
       <template slot-scope="scope">
         <span>{{ scope.row.pageviews }}</span>
       </template>
     </el-table-column>
-
     <el-table-column
       class-name="status-col"
       label="状态"
@@ -64,7 +58,6 @@
 
 <script>
 import { fetchList } from '@/api/article'
-
 export default {
   filters: {
     statusFilter(status) {

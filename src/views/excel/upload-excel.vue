@@ -22,7 +22,6 @@
 
 <script>
 import UploadExcelComponent from '@/components/UploadExcel/index.vue'
-
 export default {
   name: 'UploadExcel',
   components: { UploadExcelComponent },

@@ -1,41 +1,28 @@
 <template>
   <div class="components-container">
     <aside>
-      Markdown 是基于
-      <a
-        href="https://github.com/nhnent/tui.editor"
-        target="_blank"
-      >tui.editor</a>
+      Markdown是基于
+      <a href="https://github.com/nhnent/tui.editor" target="_blank">tui.editor</a>
       ，用Vue简单包装。
-      <a
-        target="_blank"
-        href="https://panjiachen.github.io/vue-element-admin-site/feature/component/markdown-editor.html"
-      >
+      <a target="_blank" href="https://panjiachen.github.io/vue-element-admin-site/feature/component/markdown-editor.html">
         文档
       </a>
     </aside>
     <div class="editor-container">
-      <el-tag class="tag-title"> 基本: </el-tag>
+      <el-tag class="tag-title">基本: </el-tag>
       <markdown-editor v-model="content1" height="300px" />
     </div>
     <div class="editor-container">
-      <el-tag class="tag-title"> Markdown 模式: </el-tag>
-      <markdown-editor
-        ref="markdownEditor"
-        v-model="content2"
-        :options="{ hideModeSwitch: true, previewStyle: 'tab' }"
-        height="200px"
-      />
+      <el-tag class="tag-title">Markdown模式: </el-tag>
+      <markdown-editor ref="markdownEditor" v-model="content2" height="200px"
+        :options="{ hideModeSwitch: true, previewStyle: 'tab' }" />
     </div>
     <div class="editor-container">
-      <el-tag class="tag-title"> 自定义工具栏: </el-tag>
-      <markdown-editor
-        v-model="content3"
-        :options="{ toolbarItems: ['heading', 'bold', 'italic'] }"
-      />
+      <el-tag class="tag-title">自定义工具栏: </el-tag>
+      <markdown-editor v-model="content3" :options="{ toolbarItems: ['heading', 'bold', 'italic'] }" />
     </div>
     <div class="editor-container">
-      <el-tag class="tag-title"> I18n: </el-tag>
+      <el-tag class="tag-title">I18n: </el-tag>
       <el-alert
         :closable="false"
         title="您可以更改管理系统的语言以查看效果"
@@ -54,9 +41,9 @@
       icon="el-icon-document"
       @click="getHtml"
     >
-      获取 HTML
+      获取HTML
     </el-button>
-    <div v-html="html" />
+    <div v-html="html"></div>
   </div>
 </template>
 

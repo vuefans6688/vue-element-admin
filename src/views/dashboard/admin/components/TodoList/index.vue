@@ -34,7 +34,7 @@
     <footer v-show="todos.length" class="footer">
       <span class="todo-count">
         <strong>{{ remaining }}</strong>
-        左{{ remaining | pluralize("item") }}
+        left {{ remaining | pluralize("item") }}
       </span>
       <ul class="filters">
         <li v-for="(val, key) in filters" :key="key">

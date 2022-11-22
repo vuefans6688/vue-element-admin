@@ -2,12 +2,11 @@
   <div class="app-container">
     <div class="filter-container">
       <el-checkbox-group v-model="formThead">
-        <el-checkbox label="苹果"> 苹果 </el-checkbox>
-        <el-checkbox label="香蕉"> 香蕉 </el-checkbox>
-        <el-checkbox label="桔子"> 桔子 </el-checkbox>
+        <el-checkbox label="苹果">苹果</el-checkbox>
+        <el-checkbox label="香蕉">香蕉</el-checkbox>
+        <el-checkbox label="桔子">桔子</el-checkbox>
       </el-checkbox-group>
     </div>
-
     <el-table
       :data="tableData"
       border

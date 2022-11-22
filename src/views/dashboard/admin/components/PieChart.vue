@@ -6,7 +6,6 @@
 import echarts from 'echarts'
 require('echarts/theme/macarons') // 图表主题
 import resize from './mixins/resize'
-
 export default {
   mixins: [resize],
   props: {

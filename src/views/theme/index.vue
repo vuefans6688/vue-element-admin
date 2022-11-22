@@ -11,7 +11,7 @@
         </a>
       </div>
       <div class="box-item">
-        <span class="field-label">改变主题 : </span>
+        <span class="field-label">改变主题: </span>
         <el-switch v-model="theme" />
         <aside style="margin-top: 15px">
           提示：它不同于在导航栏上选择的主题是两个
@@ -20,26 +20,23 @@
         </aside>
       </div>
     </el-card>
-
     <div class="block">
-      <el-button type="primary"> Primary </el-button>
-      <el-button type="success"> Success </el-button>
-      <el-button type="info"> Info </el-button>
-      <el-button type="warning"> Warning </el-button>
-      <el-button type="danger"> Danger </el-button>
+      <el-button type="primary">Primary</el-button>
+      <el-button type="success">Success</el-button>
+      <el-button type="info">Info</el-button>
+      <el-button type="warning">Warning</el-button>
+      <el-button type="danger">Danger</el-button>
     </div>
-
     <div class="block">
       <el-button type="primary" icon="el-icon-edit" />
       <el-button type="primary" icon="el-icon-share" />
       <el-button type="primary" icon="el-icon-delete" />
-      <el-button type="primary" icon="el-icon-search"> 搜索 </el-button>
+      <el-button type="primary" icon="el-icon-search">搜索</el-button>
       <el-button type="primary">
         上传
         <i class="el-icon-upload el-icon-right" />
       </el-button>
     </div>
-
     <div class="block">
       <el-tag
         v-for="tag in tags"
@@ -50,15 +47,13 @@
         {{ tag.name }}
       </el-tag>
     </div>
-
     <div class="block">
       <el-radio-group v-model="radio">
-        <el-radio :label="3"> 选项 A </el-radio>
-        <el-radio :label="6"> 选项 B </el-radio>
-        <el-radio :label="9"> 选项 C </el-radio>
+        <el-radio :label="3">选项A</el-radio>
+        <el-radio :label="6">选项B</el-radio>
+        <el-radio :label="9">选项C</el-radio>
       </el-radio-group>
     </div>
-
     <div class="block">
       <el-slider v-model="slideValue" />
     </div>
@@ -68,7 +63,6 @@
 <script>
 import { toggleClass } from '@/utils'
 import '@/assets/custom-theme/index.css' // the theme changed version element-ui css
-
 export default {
   name: 'Theme',
   data() {

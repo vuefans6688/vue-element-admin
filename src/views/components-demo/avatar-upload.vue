@@ -42,10 +42,10 @@ export default {
     }
   },
   methods: {
-    cropSuccess(resData) {
+    cropSuccess(result) {
       this.imagecropperShow = false
       this.imagecropperKey = this.imagecropperKey + 1
-      this.image = resData.files.avatar
+      this.image = result.files.avatar
     },
     close() {
       this.imagecropperShow = false

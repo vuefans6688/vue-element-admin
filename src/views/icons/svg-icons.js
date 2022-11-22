@@ -1,5 +1,5 @@
 const request = require.context('../../icons/svg', false, /\.svg$/)
-const requireAll = requireContext => requireContext.keys()
+const requireAll = context => context.keys()
 
 const regular = /\.\/(.*)\.svg/
 

@@ -26,7 +26,6 @@
           autocomplete="on"
         />
       </el-form-item>
-
       <el-tooltip
         v-model="capsTooltip"
         content="大写锁定已打开"
@@ -57,14 +56,12 @@
           </span>
         </el-form-item>
       </el-tooltip>
-
       <el-button
         :loading="loading"
         type="primary"
         style="width: 100%; margin-bottom: 30px"
         @click.native.prevent="handleLogin"
       >登录</el-button>
-
       <div style="position: relative">
         <div class="tips">
           <span>用户名 : admin</span>
@@ -74,7 +71,6 @@
           <span style="margin-right: 18px">用户名 : editor</span>
           <span>密码 : any</span>
         </div>
-
         <el-button
           class="thirdparty-button"
           type="primary"
@@ -84,7 +80,6 @@
         </el-button>
       </div>
     </el-form>
-
     <el-dialog title="或与...连接" :visible.sync="showDialog">
       不能在本地模拟，所以请结合您自己的业务模拟! ! !
       <br>
@@ -98,7 +93,6 @@
 <script>
 import { validUsername } from '@/utils/validate'
 import SocialSign from './components/SocialSignin'
-
 export default {
   name: 'Login',
   components: { SocialSign },
@@ -222,9 +216,8 @@ export default {
 </script>
 
 <style lang="scss">
-/* 修复input 背景不协调 和光标变色 */
-/* Detail see https://github.com/PanJiaChen/vue-element-admin/pull/927 */
-
+/* 修复input背景不协调和光标变色 */
+/* 详情见 https://github.com/PanJiaChen/vue-element-admin/pull/927 */
 $background: #283443;
 $light-gray: #fff;
 $cursor: #fff;
@@ -243,7 +236,7 @@ $cursor: #fff;
     width: 85%;
 
     input {
-      background: transparent;
+      background-color: transparent;
       border: 0px;
       -webkit-appearance: none;
       border-radius: 0px;
@@ -261,7 +254,7 @@ $cursor: #fff;
 
   .el-form-item {
     border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     color: #454545;
   }

@@ -10,12 +10,12 @@
       style="width: 400px"
     >
       <el-form-item
-        label-width="0px"
+        label-width="0"
         style="margin-bottom: 0px"
         prop="source_uri"
       >
         <el-input v-model="source_uri" placeholder="请输入内容">
-          <template slot="prepend"> url </template>
+          <template slot="prepend">url</template>
         </el-input>
       </el-form-item>
     </el-dropdown-menu>

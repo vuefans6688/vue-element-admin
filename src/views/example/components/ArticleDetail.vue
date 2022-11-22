@@ -22,11 +22,9 @@
           草稿
         </el-button>
       </sticky>
-
       <div class="create-post-main-container">
         <el-row>
           <Warning />
-
           <el-col :span="24">
             <el-form-item style="margin-bottom: 40px" prop="title">
               <MDinput
@@ -38,7 +36,6 @@
                 标题
               </MDinput>
             </el-form-item>
-
             <div class="post-info-container">
               <el-row>
                 <el-col :span="8">
@@ -64,7 +61,6 @@
                     </el-select>
                   </el-form-item>
                 </el-col>
-
                 <el-col :span="10">
                   <el-form-item
                     label-width="120px"
@@ -79,7 +75,6 @@
                     />
                   </el-form-item>
                 </el-col>
-
                 <el-col :span="6">
                   <el-form-item
                     label-width="90px"
@@ -100,7 +95,6 @@
             </div>
           </el-col>
         </el-row>
-
         <el-form-item
           style="margin-bottom: 40px"
           label-width="70px"
@@ -119,11 +113,9 @@
             class="word-counter"
           >{{ contentShortLength }}文字</span>
         </el-form-item>
-
         <el-form-item prop="content" style="margin-bottom: 30px">
           <Tinymce ref="editor" v-model="postForm.content" :height="400" />
         </el-form-item>
-
         <el-form-item prop="image_uri" style="margin-bottom: 30px">
           <Upload v-model="postForm.image_uri" />
         </el-form-item>
@@ -142,7 +134,6 @@ import { fetchArticle } from '@/api/article'
 import { searchUser } from '@/api/remote-search'
 import Warning from './Warning'
 import { CommentDropdown, PlatformDropdown, SourceUrlDropdown } from './Dropdown'
-
 const defaultForm = {
   status: 'draft',
   title: '', // 文章题目
@@ -156,7 +147,6 @@ const defaultForm = {
   comment_disabled: false,
   importance: 0
 }
-
 export default {
   name: 'ArticleDetail',
   components: { Tinymce, MDinput, Upload, Sticky, Warning, CommentDropdown, PlatformDropdown, SourceUrlDropdown },
@@ -226,7 +216,6 @@ export default {
     }
     // 为什么要复制这个。这里是$route？
     // 因为如果您进入这个页面并快速切换标签，可能是在执行setTagsViewTitle函数时，这个.$route就不再指向当前页面了
-    // https://github.com/PanJiaChen/vue-element-admin/issues/1221
     this.tempRoute = Object.assign({}, this.$route)
   },
   methods: {

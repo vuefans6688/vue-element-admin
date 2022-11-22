@@ -6,9 +6,7 @@
 import echarts from 'echarts'
 require('echarts/theme/macarons') // 图表主题
 import resize from './mixins/resize'
-
 const animationDuration = 3000
-
 export default {
   mixins: [resize],
   props: {
@@ -45,12 +43,11 @@ export default {
   methods: {
     initChart() {
       this.chart = echarts.init(this.$el, 'macarons')
-
       this.chart.setOption({
         tooltip: {
           trigger: 'axis',
           axisPointer: { // 坐标轴指示器，坐标轴触发有效
-            type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+            type: 'shadow' // 默认为直线，可选为'line'或'shadow'
           }
         },
         radar: {

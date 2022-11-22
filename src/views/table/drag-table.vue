@@ -16,25 +16,21 @@
           <span>{{ row.id }}</span>
         </template>
       </el-table-column>
-
       <el-table-column width="180px" align="center" label="日期">
         <template slot-scope="{ row }">
           <span>{{ row.timestamp | parseTime("{y}-{m}-{d} {h}:{i}") }}</span>
         </template>
       </el-table-column>
-
       <el-table-column min-width="300px" label="标题" align="center">
         <template slot-scope="{ row }">
           <span>{{ row.title }}</span>
         </template>
       </el-table-column>
-
       <el-table-column width="110px" align="center" label="作者">
         <template slot-scope="{ row }">
           <span>{{ row.author }}</span>
         </template>
       </el-table-column>
-
       <el-table-column width="100px" label="重要性" align="center">
         <template slot-scope="{ row }">
           <svg-icon
@@ -45,13 +41,11 @@
           />
         </template>
       </el-table-column>
-
       <el-table-column align="center" label="阅读" width="95">
         <template slot-scope="{ row }">
           <span>{{ row.pageviews }}</span>
         </template>
       </el-table-column>
-
       <el-table-column
         class-name="status-col"
         label="状态"
@@ -64,22 +58,20 @@
           </el-tag>
         </template>
       </el-table-column>
-
       <el-table-column align="center" label="拖拽" width="80">
         <template slot-scope="{ row }">
           <svg-icon class="drag-handler" icon-class="drag" />
         </template>
       </el-table-column>
     </el-table>
-    <div class="show-d"><el-tag>默认顺序:</el-tag> {{ oldList }}</div>
-    <div class="show-d"><el-tag>拖拽后的顺序:</el-tag> {{ newList }}</div>
+    <div class="show-d"><el-tag>默认顺序: </el-tag>{{ oldList }}</div>
+    <div class="show-d"><el-tag>拖拽后的顺序: </el-tag>{{ newList }}</div>
   </div>
 </template>
 
 <script>
 import { fetchList } from '@/api/article'
 import Sortable from 'sortablejs'
-
 export default {
   name: 'DragTable',
   filters: {

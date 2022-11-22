@@ -11,8 +11,7 @@
             :start-val="0"
             :end-val="102400"
             :duration="2600"
-            class="card-panel-num"
-          />
+            class="card-panel-num" />
         </div>
       </div>
     </el-col>
@@ -102,16 +101,16 @@ export default {
         color: #fff;
       }
       .icon-people {
-        background: #40c9c6;
+        background-color: #40c9c6;
       }
       .icon-message {
-        background: #36a3f7;
+        background-color: #36a3f7;
       }
       .icon-money {
-        background: #f4516c;
+        background-color: #f4516c;
       }
       .icon-shopping {
-        background: #34bfa3;
+        background-color: #34bfa3;
       }
     }
     .icon-people {

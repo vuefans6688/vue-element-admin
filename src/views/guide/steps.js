@@ -1,4 +1,4 @@
-const steps = [
+export default [
   {
     element: '#hamburger-container',
     popover: {
@@ -49,5 +49,3 @@ const steps = [
     padding: 0
   }
 ]
-
-export default steps

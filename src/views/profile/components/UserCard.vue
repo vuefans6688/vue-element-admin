@@ -3,7 +3,6 @@
     <div slot="header" class="clearfix">
       <span>关于我</span>
     </div>
-
     <div class="user-profile">
       <div class="box-center">
         <pan-thumb
@@ -23,7 +22,6 @@
         </div>
       </div>
     </div>
-
     <div class="user-bio">
       <div class="user-education user-bio-section">
         <div class="user-bio-section-header">
@@ -33,7 +31,6 @@
           <div class="text-muted">理工大学计算机科学中的JS</div>
         </div>
       </div>
-
       <div class="user-skills user-bio-section">
         <div class="user-bio-section-header">
           <svg-icon icon-class="skill" /><span>技能</span>
@@ -63,7 +60,6 @@
 
 <script>
 import PanThumb from '@/components/PanThumb'
-
 export default {
   components: { PanThumb },
   props: {

@@ -5,9 +5,7 @@
         您的角色:
         <span v-for="item in roles" :key="item" class="pan-info-roles">{{ item }}</span>
       </pan-thumb>
-      <github-corner
-        style="position: absolute; top: 0px; border: 0; right: 0"
-      />
+      <github-corner style="position: absolute; top: 0px; border: 0; right: 0" />
       <div class="info-container">
         <span class="display-name">{{ name }}</span>
         <span style="font-size: 20px; padding-top: 20px; display: inline-block">编辑的仪表盘</span>
@@ -32,11 +30,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([
-      'name',
-      'avatar',
-      'roles'
-    ])
+    ...mapGetters(['name', 'avatar', 'roles'])
   }
 }
 </script>

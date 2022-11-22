@@ -13,19 +13,16 @@
           <span>{{ row.id }}</span>
         </template>
       </el-table-column>
-
       <el-table-column width="180px" align="center" label="日期">
         <template slot-scope="{ row }">
           <span>{{ row.timestamp | parseTime("{y}-{m}-{d} {h}:{i}") }}</span>
         </template>
       </el-table-column>
-
       <el-table-column width="120px" align="center" label="作者">
         <template slot-scope="{ row }">
           <span>{{ row.author }}</span>
         </template>
       </el-table-column>
-
       <el-table-column width="100px" label="重要性" align="center">
         <template slot-scope="{ row }">
           <svg-icon
@@ -36,7 +33,6 @@
           />
         </template>
       </el-table-column>
-
       <el-table-column
         class-name="status-col"
         label="状态"
@@ -49,7 +45,6 @@
           </el-tag>
         </template>
       </el-table-column>
-
       <el-table-column min-width="300px" label="标题" align="center">
         <template slot-scope="{ row }">
           <template v-if="row.edit">
@@ -67,7 +62,6 @@
           <span v-else>{{ row.title }}</span>
         </template>
       </el-table-column>
-
       <el-table-column align="center" label="操作" width="120">
         <template slot-scope="{ row }">
           <el-button
@@ -96,7 +90,6 @@
 
 <script>
 import { fetchList } from '@/api/article'
-
 export default {
   name: 'InlineEditTable',
   filters: {
@@ -129,7 +122,7 @@ export default {
       const items = data.items
       this.list = items.map(object => {
         this.$set(object, 'edit', false) // https://vuejs.org/v2/guide/reactivity.html
-        object.originalTitle = object.title //  将在用户单击"取消"按钮时使用
+        object.originalTitle = object.title // 将在用户单击"取消"按钮时使用
         return object
       })
       this.listLoading = false

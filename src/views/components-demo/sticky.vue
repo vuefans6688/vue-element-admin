@@ -17,8 +17,8 @@
         <el-button plain>
           链接<i class="el-icon-caret-bottom el-icon--right" />
         </el-button>
-        <el-dropdown-menu slot="dropdown" class="no-padding no-border" style="width:300px">
-          <el-input v-model="url" 占位符="Please enter the content">
+        <el-dropdown-menu slot="dropdown" class="no-padding no-border" style="width: 300px">
+          <el-input v-model="url" placeholder="请输入内容">
             <template slot="prepend">
               url
             </template>
@@ -26,11 +26,9 @@
         </el-dropdown-menu>
       </el-dropdown>
       <div class="time-container">
-        <el-date-picker v-model="time" type="datetime" format="yyyy-MM-dd HH:mm:ss" 占位符="Release time" />
+        <el-date-picker v-model="time" type="datetime" format="yyyy-MM-dd HH:mm:ss" placeholder="恢复时间" />
       </div>
-      <el-button style="margin-left: 10px;" type="success">
-        发布
-      </el-button>
+      <el-button style="margin-left: 10px;" type="success">发布</el-button>
     </sticky>
     <div class="components-container">
       <aside>
@@ -50,7 +48,7 @@
       <div>占位符</div>
       <div>占位符</div>
       <sticky :sticky-top="200">
-        <el-button type="primary"> 占位符</el-button>
+        <el-button type="primary">占位符</el-button>
       </sticky>
       <div>占位符</div>
       <div>占位符</div>

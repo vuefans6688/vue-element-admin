@@ -150,7 +150,9 @@ export function param(json) {
   if (!json) return ''
   return cleanArray(
     Object.keys(json).map(key => {
-      if (json[key] === undefined) return ''
+      if (json[key] === undefined) {
+        return ''
+      }
       return encodeURIComponent(key) + '=' + encodeURIComponent(json[key])
     })
   ).join('&')
@@ -225,9 +227,7 @@ export function toggleClass(element, className) {
   if (nameIndex === -1) {
     classString += '' + className
   } else {
-    classString =
-      classString.substr(0, nameIndex) +
-      classString.substr(nameIndex + className.length)
+    classString = classString.substr(0, nameIndex) + classString.substr(nameIndex + className.length)
   }
   element.className = classString
 }
@@ -255,15 +255,17 @@ export function debounce(func, wait, immediate) {
   const later = function() {
     // 据上一次触发时间间隔
     const last = +new Date() - timestamp
-    // 上次被包装函数被调用时间间隔 last 小于设定时间间隔 wait
+    // 上次被包装函数被调用时间间隔last小于设定时间间隔wait
     if (last < wait && last > 0) {
       timeout = setTimeout(later, wait - last)
     } else {
       timeout = null
-      // 如果设定为immediate===true，因为开始边界已经调用过了此处无需调用
+      // 为何要设定immediate为rue，因为开始边界已经调用过了，此处无需调用
       if (!immediate) {
         result = func.apply(context, args)
-        if (!timeout) context = args = null
+        if (!timeout) {
+          context = args = null
+        }
       }
     }
   }
@@ -272,7 +274,9 @@ export function debounce(func, wait, immediate) {
     timestamp = +new Date()
     const callNow = immediate && !timeout
     // 如果延时不存在，重新设定延时
-    if (!timeout) timeout = setTimeout(later, wait)
+    if (!timeout) {
+      timeout = setTimeout(later, wait)
+    }
     if (callNow) {
       result = func.apply(context, args)
       context = args = null
@@ -326,17 +330,19 @@ export function createUniqueString() {
  * @param {string} cls
  * @returns {boolean}
  */
-export function hasClass(el, cls) {
-  return !!el.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'))
+export function hasClass(el, classes) {
+  return !!el.className.match(new RegExp('(\\s|^)' + classes + '(\\s|$)'))
 }
 
 /**
  * Add class to element
  * @param {HTMLElement} el
- * @param {string} cls
+ * @param {string} style
  */
-export function addClass(el, cls) {
-  if (!hasClass(el, cls)) el.className += ' ' + cls
+export function addClass(el, classes) {
+  if (!hasClass(el, classes)) {
+    el.className += ' ' + classes
+  }
 }
 
 /**
@@ -344,9 +350,9 @@ export function addClass(el, cls) {
  * @param {HTMLElement} elm
  * @param {string} cls
  */
-export function removeClass(el, cls) {
-  if (hasClass(el, cls)) {
-    const reg = new RegExp('(\\s|^)' + cls + '(\\s|$)')
+export function removeClass(el, classes) {
+  if (hasClass(el, classes)) {
+    const reg = new RegExp('(\\s|^)' + classes + '(\\s|$)')
     el.className = el.className.replace(reg, ' ')
   }
 }

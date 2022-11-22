@@ -7,7 +7,6 @@
       icon="el-icon-document"
       @click="handleDownload"
     >导出</el-button>
-
     <el-table
       ref="multipleTable"
       v-loading="listLoading"
@@ -52,7 +51,6 @@
 <script>
 import { fetchList } from '@/api/article'
 import { parseTime } from '@/utils'
-
 export default {
   name: 'MergeHeader',
   data() {

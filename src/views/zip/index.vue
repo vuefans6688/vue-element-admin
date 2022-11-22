@@ -24,29 +24,29 @@
       highlight-current-row
     >
       <el-table-column align="center" label="ID" width="95">
-        <template slot-scope="scope">
-          {{ scope.$index }}
+        <template slot-scope="{ row, $index }">
+          {{ $index }}
         </template>
       </el-table-column>
       <el-table-column label="标题" align="center">
-        <template slot-scope="scope">
-          {{ scope.row.title }}
+        <template slot-scope="{ row }">
+          {{ row.title }}
         </template>
       </el-table-column>
       <el-table-column label="作者" width="95" align="center">
-        <template slot-scope="scope">
-          <el-tag>{{ scope.row.author }}</el-tag>
+        <template slot-scope="{ row }">
+          <el-tag>{{ row.author }}</el-tag>
         </template>
       </el-table-column>
       <el-table-column label="阅读" width="115" align="center">
-        <template slot-scope="scope">
-          {{ scope.row.pageviews }}
+        <template slot-scope="{ row }">
+          {{ row.pageviews }}
         </template>
       </el-table-column>
       <el-table-column align="center" label="日期" width="220">
-        <template slot-scope="scope">
+        <template slot-scope="{ row }">
           <i class="el-icon-time" />
-          <span>{{ scope.row.display_time }}</span>
+          <span>{{ row.display_time }}</span>
         </template>
       </el-table-column>
     </el-table>
@@ -55,7 +55,6 @@
 
 <script>
 import { fetchList } from '@/api/article'
-
 export default {
   name: 'ExportZip',
   data() {

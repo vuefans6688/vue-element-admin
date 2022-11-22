@@ -1,8 +1,8 @@
 <template>
   <div>
-    <!--error code-->
+    <!-- error code -->
     {{ a.a }}
-    <!--error code-->
+    <!-- error code -->
   </div>
 </template>
 

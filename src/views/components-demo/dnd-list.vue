@@ -2,18 +2,10 @@
   <div class="components-container">
     <aside>
       拖拽基于
-      <a
-        href="https://github.com/SortableJS/Vue.Draggable"
-        target="_blank"
-      >Vue.Draggable</a>
+      <a href="https://github.com/SortableJS/Vue.Draggable" target="_blank">Vue.Draggable</a>
     </aside>
     <div class="editor-container">
-      <dnd-list
-        :list1="list1"
-        :list2="list2"
-        list1-title="列表"
-        list2-title="文章库"
-      />
+      <dnd-list :list1="list1" :list2="list2" list1-title="列表" list2-title="文章库" />
     </div>
   </div>
 </template>

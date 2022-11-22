@@ -1,13 +1,12 @@
 <template>
   <div class="app-container">
     <div class="filter-container">
-      <el-checkbox-group v-model="checkboxVal">
-        <el-checkbox label="苹果"> 苹果 </el-checkbox>
-        <el-checkbox label="香蕉"> 香蕉 </el-checkbox>
-        <el-checkbox label="桔子"> 桔子 </el-checkbox>
+      <el-checkbox-group v-model="checkboxValue">
+        <el-checkbox label="苹果">苹果</el-checkbox>
+        <el-checkbox label="香蕉">香蕉</el-checkbox>
+        <el-checkbox label="桔子">桔子</el-checkbox>
       </el-checkbox-group>
     </div>
-
     <el-table
       :key="key"
       :data="tableData"
@@ -33,7 +32,6 @@
 
 <script>
 const defaultFormThead = ['苹果', '香蕉']
-
 export default {
   data() {
     return {
@@ -51,16 +49,16 @@ export default {
           orange: '桔子-20'
         }
       ],
-      key: 1, // table key
+      key: 1, // 表格key
       formTheadOptions: ['苹果', '香蕉', '桔子'],
-      checkboxVal: defaultFormThead, // checkboxVal
-      formThead: defaultFormThead // 默认表头 Default header
+      checkboxValue: defaultFormThead, // 复选框的值
+      formThead: defaultFormThead // 默认表头
     }
   },
   watch: {
-    checkboxVal(value) {
-      this.formThead = this.formTheadOptions.filter(i => value.indexOf(i) >= 0)
-      this.key = this.key + 1// 为了保证table 每次都会重渲 In order to ensure the table will be re-rendered each time
+    checkboxValue(value) {
+      this.formThead = this.formTheadOptions.filter(item => value.indexOf(item) >= 0)
+      this.key = this.key + 1 // 为了保证表格每次都会重渲
     }
   }
 }

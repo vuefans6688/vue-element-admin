@@ -214,7 +214,6 @@
       :limit.sync="listQuery.limit"
       @pagination="getList"
     />
-
     <el-dialog
       :title="textMap[dialogStatus]"
       :visible.sync="dialogFormVisible"
@@ -323,20 +322,17 @@ import { fetchList, fetchPv, createArticle, updateArticle } from '@/api/article'
 import waves from '@/directive/waves' // waves directive
 import { parseTime } from '@/utils'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination
-
 const calendarTypeOptions = [
   { key: 'CN', display_name: '中国' },
   { key: 'US', display_name: '美国' },
   { key: 'JP', display_name: '日本' },
   { key: 'EU', display_name: '欧洲' }
 ]
-
-// arr to obj, such as { CN : "China", US : "USA" }
+// array to object, such as { CN : "China", US : "USA" }
 const calendarTypeKeyValue = calendarTypeOptions.reduce((acc, cur) => {
   acc[cur.key] = cur.display_name
   return acc
 }, {})
-
 export default {
   name: 'ComplexTable',
   components: { Pagination },

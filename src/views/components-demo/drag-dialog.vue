@@ -71,7 +71,7 @@ export default {
     }
   },
   methods: {
-    // v-el-drag-dialog onDrag 回调函数
+    // v-el-drag-dialog的onDrag回调函数
     handleDrag() {
       this.$refs.select.blur()
     }

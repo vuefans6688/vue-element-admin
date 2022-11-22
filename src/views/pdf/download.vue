@@ -172,7 +172,7 @@ export default {
     border: 0;
   }
 
-  /* 解决 IE6-7 图片缩放锯齿问题 */
+  /* 解决IE6-7图片缩放锯齿问题 */
   img {
     -ms-interpolation-mode: bicubic;
   }

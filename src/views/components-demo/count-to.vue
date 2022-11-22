@@ -1,10 +1,7 @@
 <template>
   <div class="components-container">
     <aside>
-      <a
-        href="https://github.com/PanJiaChen/vue-countTo"
-        target="_blank"
-      >计算总数组件</a>
+      <a href="https://github.com/PanJiaChen/vue-countTo" target="_blank">计算总数组件</a>
     </aside>
     <count-to
       ref="example"

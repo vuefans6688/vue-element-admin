@@ -115,7 +115,7 @@
       <div>占位符</div>
       <div>占位符</div>
     </div>
-    <!-- you can add element-ui's tooltip -->
+    <!-- 你可以添加一个element-ui的tooltip -->
     <el-tooltip placement="top" content="tooltip">
       <back-to-top
         :custom-style="myBackToTopStyle"
@@ -141,8 +141,8 @@ export default {
         width: '40px',
         height: '40px',
         'border-radius': '4px',
-        'line-height': '45px', // 请保持与高度一致以垂直居中 Please keep consistent with height to center vertically
-        background: '#e7eaf1' // 按钮的背景颜色 The background color of the button
+        'line-height': '45px', // 请保持与高度一致以垂直居中
+        background: '#e7eaf1' // 按钮的背景颜色
       }
     }
   }

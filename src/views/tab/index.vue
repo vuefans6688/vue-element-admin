@@ -33,7 +33,6 @@
 
 <script>
 import TabPane from './components/TabPane'
-
 export default {
   name: 'Tab',
   components: { TabPane },

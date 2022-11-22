@@ -9,8 +9,7 @@
         <el-checkbox
           v-for="item in platformsOptions"
           :key="item.key"
-          :label="item.key"
-        >
+          :label="item.key">
           {{ item.name }}
         </el-checkbox>
       </el-checkbox-group>

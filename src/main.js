@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Cookies from 'js-cookie'
-import 'normalize.css/normalize.css' // CSS重置的现代替代方案
+import 'normalize.css/normalize.css' // css重置的现代替代方案
 import Element from 'element-ui'
 import './styles/element-variables.scss'
 import enLang from 'element-ui/lib/locale/lang/en' // 如果使用中文语言包请默认支持，无需额外引入，请删除该依赖
@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === 'production') {
 
 Vue.use(Element, {
   size: Cookies.get('size') || 'medium', // 设置element-ui默认尺寸
-  locale: enLang // 如果使用中文，无需设置，请删除
+  locale: enLang // 如果使用中文无需设置，请删除
 })
 
 // 注册全局实用程序过滤器

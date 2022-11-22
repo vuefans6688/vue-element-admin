@@ -1,7 +1,6 @@
 <template>
   <div class="app-container">
     <el-button type="primary" @click="handleAddRole">添加角色</el-button>
-
     <el-table :data="rolesList" style="width: 100%; margin-top: 30px" border>
       <el-table-column align="center" label="角色密钥" width="220">
         <template slot-scope="scope">
@@ -33,7 +32,6 @@
         </template>
       </el-table-column>
     </el-table>
-
     <el-dialog
       :visible.sync="dialogVisible"
       :title="dialogType === 'edit' ? '编辑角色' : '添加角色'"
@@ -189,7 +187,7 @@ export default {
         })
     },
     generateTree(routes, basePath = '/', checkedKeys) {
-      const res = []
+      const result = []
       for (const route of routes) {
         const routePath = path.resolve(basePath, route.path)
         // 递归子路由
@@ -197,10 +195,10 @@ export default {
           route.children = this.generateTree(route.children, routePath, checkedKeys)
         }
         if (checkedKeys.includes(routePath) || (route.children && route.children.length >= 1)) {
-          res.push(route)
+          result.push(route)
         }
       }
-      return res
+      return result
     },
     async confirmRole() {
       const isEdit = this.dialogType === 'edit'
